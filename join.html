@@ -667,6 +667,23 @@ footer{background:var(--navy);border-top:0.5px solid rgba(200,164,90,0.13);paddi
   * { max-width: 100%; box-sizing: border-box; }
   img, video { max-width: 100% !important; }
 }
+
+/* ── HAMBURGER MENU ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:300;background:none;border:none}
+.hamburger span{display:block;width:24px;height:1.5px;background:#fff;transition:all .3s ease;transform-origin:center}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(20,20,20,0.98);z-index:250;flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;transition:opacity .35s ease}
+.mobile-menu.open{display:flex;opacity:1}
+.mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,6vw,42px);letter-spacing:.14em;color:#fff;text-decoration:none;transition:color .2s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu .m-contact-btn{background:var(--gold);color:var(--navy) !important;padding:14px 40px;font-size:18px}
+@media (max-width:768px){
+  .hamburger{display:flex}
+  .n-links{display:none !important}
+  .n-btn{display:none !important}
+}
 </style></head><body><!-- NAV --><nav>
   <a href="index.html" class="n-logo"><img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776445191/logonav_hghghu.png" alt="The Nolan Group" style="height:54px;width:auto;display:block"></a>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
