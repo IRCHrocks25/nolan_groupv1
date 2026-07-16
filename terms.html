@@ -890,7 +890,20 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
 </style>
 </head>
 <body>
-
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="n-logo"><img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776445191/logonav_hghghu.png" alt="The Nolan Group" style="height:54px;width:auto;display:block"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="n-links">
+    <a href="buy.html">Buy</a>
+    <a href="sell.html">Sell</a>
+    <a href="luxury.html">Luxury</a>
+    <a href="communities.html">Communities</a>
+    <a href="about.html">About</a>
+    <a href="join.html">Careers</a>
+  </div>
+  <a href="contact.html" class="n-btn">Contact Us</a>
+</nav>
 
 <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
@@ -1032,6 +1045,28 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
     </div>
   </div>
 </footer>
-
+<script>
+window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')});},{threshold:0.1});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+</script>
+<script>
+var ham = document.getElementById('hamburger');
+var mob = document.getElementById('mobileMenu');
+if(ham && mob){
+  ham.addEventListener('click', function(){
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+  mob.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+</script>
 </body>
 </html>
