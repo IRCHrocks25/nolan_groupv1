@@ -651,9 +651,27 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
   .c-card { flex: 0 0 92% !important; height: 400px !important; }
   .contact-img { height: 220px !important; }
 }
+
+/* ── HAMBURGER MENU ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:300;background:none;border:none}
+.hamburger span{display:block;width:24px;height:1.5px;background:#fff;transition:all .3s ease;transform-origin:center}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(20,20,20,0.98);z-index:250;flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;transition:opacity .35s ease}
+.mobile-menu.open{display:flex;opacity:1}
+.mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,6vw,42px);letter-spacing:.14em;color:#fff;text-decoration:none;transition:color .2s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu .m-contact-btn{background:var(--gold);color:var(--navy) !important;padding:14px 40px;font-size:18px}
+@media (max-width:768px){
+  .hamburger{display:flex}
+  .n-links{display:none !important}
+  .n-btn{display:none !important}
+}
 </style>
 </head><body><!-- NAV --><nav>
   <a href="index.html" class="n-logo"><img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776445191/logonav_hghghu.png" alt="The Nolan Group" style="height:54px;width:auto;display:block"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   <div class="n-links">
     <a href="buy.html">Buy</a>
     <a href="sell.html">Sell</a>
@@ -664,6 +682,18 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
   </div>
   <a href="contact.html" class="n-btn">Contact Us</a>
 </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="buy.html">Buy</a>
+    <a href="sell.html">Sell</a>
+    <a href="luxury.html">Luxury</a>
+    <a href="communities.html">Communities</a>
+    <a href="about.html">About</a>
+    <a href="join.html">Careers</a>
+    <a href="contact.html" class="m-contact-btn">Contact Us</a>
+  </div>
 
 <section class="pg-hero">
   <div class="pg-hero-bg" style="background:url('https://res.cloudinary.com/dcuswyfur/image/upload/v1776476313/ahah_pfexze.jpg') center/cover no-repeat;transform:scaleX(-1)"></div>
@@ -718,6 +748,48 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
 .c-btn svg path{stroke:var(--navy);transition:stroke .2s}
 .c-counter{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.14em;color:var(--mid)}
 .c-counter span{color:var(--navy);font-size:16px}
+
+@media (max-width: 768px) {
+  /* Nav mobile fix */
+  nav { flex-wrap: nowrap; justify-content: space-between; }
+  .n-logo { flex: 1; }
+  .hamburger { margin-left: auto; }
+
+  /* Fix ft-bot privacy links */
+  .ft-bot { flex-direction: column; gap: 12px; text-align: center; }
+  .ft-bot p { font-size: 13px !important; }
+
+  /* Social icons */
+  .ft-brand > div:last-of-type { justify-content: flex-start; }
+
+  /* Fix contact split height */
+  .contact-img video { position: absolute; }
+
+  /* NC benefits 2-col → stack */
+  .nc-benefits-wrap { grid-template-columns: 1fr !important; gap: 40px; }
+  .nc-benefits-title { position: static !important; }
+
+  /* Why grid mobile */
+  .why-grid { grid-template-columns: 1fr !important; gap: 1px; }
+
+  /* Sell panels */
+  .sell-panels { grid-template-columns: 1fr !important; }
+
+  /* Lux listing grid */
+  .lc-grid { grid-template-columns: 1fr !important; }
+
+  /* Page hero text */
+  .pg-hero-content h1 { font-size: clamp(26px, 7vw, 40px) !important; }
+
+  /* Testimonial grid */
+  .t-grid { grid-template-columns: 1fr !important; gap: 1px; }
+
+  /* Contact cols */
+  .contact-cols { grid-template-columns: 1fr !important; }
+
+  /* Join why boxes */
+  .why-grid { grid-template-columns: 1fr !important; }
+}
 </style>
 
 <section class="c-section">
@@ -899,7 +971,7 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
 </script>
 
 
-<section style="position:relative;padding:130px 7%;text-align:center;overflow:hidden"><video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"><source src="https://cdn.katalyst-crm.com/t1/cloudinary/veo-3.1-lite_Make_it_slow_drone_shot_straightforward-0_ypxurl.mp4" type="video/mp4"></video><div style="position:absolute;inset:0;background:rgba(20,20,20,0.68);z-index:1"></div><div style="position:relative;z-index:2">
+<section style="position:relative;padding:130px 7%;text-align:center;overflow:hidden"><video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"><source src="https://res.cloudinary.com/dcuswyfur/video/upload/v1776486684/veo-3.1-lite_Make_it_slow_drone_shot_straightforward-0_ypxurl.mp4" type="video/mp4"></video><div style="position:absolute;inset:0;background:rgba(20,20,20,0.68);z-index:1"></div><div style="position:relative;z-index:2">
   <div style="max-width:700px;margin:0 auto">
     <h2 class="r w2" style="color:#fff">Find Your <span style="color:#fff">Perfect Community.</span></h2>
     <p style="font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:32px;line-height:1.78" class="r d1">Tell us what you're looking for and we'll help you find exactly the right neighborhood.</p>
@@ -915,6 +987,22 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
         <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776445191/logonav_hghghu.png" alt="The Nolan Group" style="height:40px;width:auto;display:block;margin-bottom:16px">
         <p>Florida's premier real estate team powered by eXp Realty, serving buyers, sellers, and investors across Florida's Treasure Coast and premier markets.</p>
         <p style="margin-top:14px;font-size:16px;color:rgba(255,255,255,0.24)">Monday – Saturday · 8am – 6pm</p>
+      
+        <!-- Social Media -->
+        <div style="display:flex;gap:16px;margin-top:20px;align-items:center">
+          <a href="https://www.facebook.com/TheNolanGroupofExp" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/79716846/admin/feed/posts/" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCq33WSjtlPEU6whB3o1G2qA" target="_blank" rel="noopener" aria-label="YouTube" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1c1c1c"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@usarealtorchris" target="_blank" rel="noopener" aria-label="TikTok" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+          </a>
+        </div>
       </div>
       <div class="ft-col">
         <h5>Services</h5>
@@ -942,7 +1030,7 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
     </div>
     <div class="ft-bot">
       <p>© 2025 The Nolan Group · Powered by eXp Realty · All rights reserved</p>
-      <div class="ft-contact"><strong>(772) 266-5359</strong> · info@thenolangroup.com</div>
+      <div class="ft-contact"><strong><a href="tel:7722223327" style="color:inherit;text-decoration:none">(772) 222-3327</a></strong> · info@thenolangroup.com</div>
     </div>
   </div>
 </footer>
@@ -963,5 +1051,23 @@ document.querySelectorAll('.r').forEach(el=>obs.observe(el));
   prev.addEventListener('click',()=>slide(cur-1));
   next.addEventListener('click',()=>slide(cur+1));
 })();
+</script>
+<script>
+var ham = document.getElementById('hamburger');
+var mob = document.getElementById('mobileMenu');
+if(ham && mob){
+  ham.addEventListener('click', function(){
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+  mob.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
 </script>
 </body></html>

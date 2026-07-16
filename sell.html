@@ -24,7 +24,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;background:var(--off);color:var(--navy);overflow-x:hidden}
 em{font-style:normal}
 
-/* ── NAV ── */
+/* — NAV — */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;background:transparent;padding:20px 7%;width:100%;transition:background .4s,backdrop-filter .4s}
 nav.scrolled{background:rgba(28,28,28,0.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:0.5px solid rgba(200,164,90,0.1)}
 .n-logo{display:flex;align-items:center;margin-right:auto;text-decoration:none;flex-shrink:0}
@@ -34,7 +34,7 @@ nav.scrolled{background:rgba(28,28,28,0.85);backdrop-filter:blur(18px);-webkit-b
 .n-btn{background:var(--gold);color:var(--navy);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.12em;padding:9px 22px;border-radius:0;text-decoration:none;white-space:nowrap;transition:all .2s}
 .n-btn:hover{background:var(--gold-lt);transform:translateY(-1px);box-shadow:0 3px 12px rgba(201,173,152,0.2)}
 
-/* ── HERO ── */
+/* — HERO — */
 .hero{position:relative;height:100vh;min-height:720px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
 
 /* slideshow layers */
@@ -79,7 +79,7 @@ h1{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(40
 .s-line{width:1px;height:34px;background:linear-gradient(to bottom,rgba(200,164,90,0.65),transparent);animation:sline 2s ease-in-out infinite}
 @keyframes sline{0%,100%{opacity:.3;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
 
-/* ── BUTTONS ── */
+/* — BUTTONS — */
 .btn-g{background:var(--gold);color:var(--navy);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.14em;padding:13px 32px;border-radius:0;text-decoration:none;transition:background .35s ease,transform .35s ease,box-shadow .35s ease;display:inline-flex;align-items:center;gap:8px}
 .btn-g:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,173,152,0.22)}
 .btn-o{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.82);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.12em;padding:13px 32px;border-radius:0;text-decoration:none;border:0.5px solid rgba(255,255,255,0.2);transition:background .35s ease,transform .35s ease,box-shadow .35s ease,border-color .35s ease}
@@ -87,7 +87,7 @@ h1{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(40
 .btn-n{background:transparent;color:var(--mid);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;padding:13px 28px;border-radius:0;text-decoration:none;border:0.5px solid rgba(13,27,42,0.18);transition:background .35s ease,transform .35s ease,box-shadow .35s ease,color .35s ease,border-color .35s ease}
 .btn-n:hover{background:var(--navy);border-color:var(--navy);color:#fff;transform:translateY(-1px);box-shadow:0 4px 14px rgba(28,28,28,0.12)}
 
-/* ── SECTION BASE ── */
+/* — SECTION BASE — */
 section{padding:96px 7%}
 .sec-ey{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px}
 .sec-ey::before{content:'';display:block;width:20px;height:1px;background:var(--gold)}
@@ -95,7 +95,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .w2{color:#fff!important}
 .dg{height:1px;background:linear-gradient(to right,transparent,rgba(200,164,90,0.3),transparent);margin:0 7%}
 
-/* ── VALUE PROP ── */
+/* — VALUE PROP — */
 .vp{background:var(--off);padding:0;overflow:hidden}
 .vp-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
 .vp-l{padding-right:80px}
@@ -105,7 +105,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .values-photo{position:relative;overflow:hidden;min-height:480px}
 .values-photo-bg{position:absolute;inset:0;background:url('https://res.cloudinary.com/dcuswyfur/image/upload/v1776360616/55_pkknzk.jpg') center/cover no-repeat}
 
-/* ── HORIZONTAL ACCORDION TABS ── */
+/* — HORIZONTAL ACCORDION TABS — */
 .htabs{background:var(--navy);display:flex;flex-direction:column;height:100%}
 .htab{border-bottom:0.5px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;flex-shrink:0}
 .htab:last-child{border-bottom:none}
@@ -170,7 +170,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .sc-lnk{display:inline-flex;align-items:center;gap:8px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap .2s}
 .sc-lnk:hover{gap:13px;color:var(--gold-lt)}
 
-/* ── LISTINGS ── */
+/* — LISTINGS — */
 .lst{background:var(--cream)}
 .lst-wrap{max-width:1200px;margin:0 auto}
 .lst-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:40px}
@@ -188,12 +188,12 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .lc-meta span{font-size:16px;color:var(--mid)}
 .lc-meta strong{display:block;font-size:16px;font-weight:500;color:var(--navy);margin-bottom:2px}
 
-/* ── PROCESS ── */
+/* — PROCESS — */
 .proc{background:var(--off)}
 .proc-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
 .proc-l p{font-size:16px;line-height:1.82;color:var(--mid);margin-bottom:18px}
 
-/* ── ANIMATED STEPS ── */
+/* — ANIMATED STEPS — */
 .steps-visual{position:relative;padding:8px 0}
 .sv-track{position:absolute;left:19px;top:28px;bottom:28px;width:2px;background:rgba(200,164,90,0.12);border-radius:2px;overflow:hidden}
 .sv-line-fill{width:100%;height:0%;background:linear-gradient(to bottom,var(--gold),var(--gold-lt));border-radius:2px;transition:height 1.2s cubic-bezier(.4,0,.2,1)}
@@ -217,7 +217,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .sv-card-body h4{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
 .sv-card-body p{font-size:16px;line-height:1.68;color:var(--mid)}
 
-/* ── SELL SECTION ── */
+/* — SELL SECTION — */
 .sell{background:var(--navy);padding:0;overflow:hidden}
 .sell-header{padding:80px 7% 56px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
 
@@ -291,7 +291,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 
 .sell-valuation{background:var(--gold);padding:56px 7%;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;max-width:100%;margin:0}
 
-/* ── LUXURY ── */
+/* — LUXURY — */
 .lux{background:var(--cream)}
 .lux-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .lux-r{padding:46px 42px;background:var(--navy);position:relative;overflow:hidden}
@@ -299,7 +299,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .lux-r h3{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:25px;font-weight:300;color:#fff;line-height:1.35;margin-bottom:14px}
 .lux-r p{font-size:16px;line-height:1.78;color:rgba(255,255,255,0.48)}
 
-/* ── NEW CONSTRUCTION ── */
+/* — NEW CONSTRUCTION — */
 .nc{background:var(--navy)}
 .nc-wrap{max-width:1200px;margin:0 auto}
 .nc-hd{display:grid;grid-template-columns:1fr 1fr;gap:72px;margin-bottom:56px}
@@ -309,7 +309,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .nc-alert h4{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:22px;font-weight:400;color:#fff;margin-bottom:12px}
 .nc-alert p{font-size:16px;line-height:1.78;color:rgba(255,255,255,0.48)}
 
-/* ── COMMUNITIES CAROUSEL ── */
+/* — COMMUNITIES CAROUSEL — */
 .comm{background:var(--cream);padding:96px 0 80px}
 .comm-wrap{max-width:1200px;margin:0 auto;padding:0 7%;margin-bottom:52px}
 .comm-hd{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:0}
@@ -337,7 +337,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .comm-btn svg path{stroke:var(--navy);transition:stroke .2s}
 
 
-/* ── ABOUT / VALUES ── */
+/* — ABOUT / VALUES — */
 .vals{background:var(--cream)}
 .vals-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .val-list{display:flex;flex-direction:column}
@@ -353,7 +353,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .exp-card h3{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:300;color:#fff;line-height:1.55}
 .exp-card p{font-size:16px;line-height:1.78;color:rgba(255,255,255,0.48)}
 
-/* ── TESTIMONIALS ── */
+/* — TESTIMONIALS — */
 .testi{background:var(--navy);padding:100px 7%;overflow:hidden}
 .testi-wrap{max-width:1200px;margin:0 auto}
 .testi-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:72px}
@@ -395,7 +395,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 /* CTA strip */
 .testi-cta{margin-top:64px;display:flex;align-items:center;justify-content:space-between;gap:40px;padding-top:52px;border-top:0.5px solid rgba(200,164,90,0.12);flex-wrap:wrap}
 
-/* ── CONTACT ── */
+/* — CONTACT — */
 .contact-sec{background:var(--off)}
 .contact-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .contact-l p{font-size:16px;line-height:1.82;color:var(--mid);margin-bottom:28px}
@@ -414,7 +414,7 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .f-btn{width:100%;background:var(--gold);color:var(--navy);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;padding:14px;border:none;cursor:pointer;transition:background .2s}
 .f-btn:hover{background:var(--gold-lt);box-shadow:0 4px 14px rgba(201,173,152,0.2)}
 
-/* ── JOIN TEAM ── */
+/* — JOIN TEAM — */
 .join{background:var(--navy);padding:80px 7%}
 .join-wrap{max-width:860px;margin:0 auto;text-align:center}
 .join-intro{font-size:16px;line-height:1.82;color:rgba(255,255,255,0.5);max-width:640px;margin:0 auto 52px}
@@ -429,14 +429,14 @@ h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32
 .team-q blockquote{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:16px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:14px}
 .team-q cite{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--gold);letter-spacing:.1em}
 
-/* ── CTA BANNER ── */
+/* — CTA BANNER — */
 .cta-ban{position:relative;padding:100px 7%;overflow:hidden}
 .cta-ban video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .cta-ban::before{content:'';position:absolute;inset:0;background:rgba(28,28,28,0.72);z-index:1}
 .cta-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:60px;position:relative;z-index:2;flex-wrap:wrap}
 .cta-r{flex-shrink:0;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
 
-/* ── FOOTER ── */
+/* — FOOTER — */
 footer{background:var(--navy);border-top:0.5px solid rgba(200,164,90,0.13);padding:58px 7% 34px}
 .ft{max-width:1200px;margin:0 auto}
 .ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:50px}
@@ -450,7 +450,7 @@ footer{background:var(--navy);border-top:0.5px solid rgba(200,164,90,0.13);paddi
 .ft-contact{font-size:16px;color:rgba(255,255,255,0.34)}
 .ft-contact strong{color:var(--gold);font-weight:400}
 
-/* ── REVEAL ANIMATION ── */
+/* — REVEAL ANIMATION — */
 .r{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .r.v{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
@@ -486,7 +486,7 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
 .why-grid .why-ico,
 .nc-benefits-title span[style*="color:var(--gold)"] { color: var(--gold-dark) !important; }
 
-/* ── GLOBAL HOVER ENHANCEMENTS ── */
+/* — GLOBAL HOVER ENHANCEMENTS — */
 /* Nav links */
 .n-links a{transition:color .25s ease,background .25s ease}
 
@@ -528,12 +528,12 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
    ═══════════════════════════════════════ */
 @media (max-width: 768px) {
 
-  /* ── NAV ── */
+  /* — NAV — */
   nav { padding: 14px 5%; }
   .n-links { display: none; }
   .n-logo img { height: 40px !important; }
 
-  /* ── HERO / PAGE HERO ── */
+  /* — HERO / PAGE HERO — */
   .pg-hero { padding: 120px 5% 60px; min-height: 360px; }
   .pg-hero-content h1 { font-size: clamp(28px, 7vw, 42px) !important; }
   .pg-hero-content p { font-size: 15px !important; }
@@ -543,17 +543,17 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
   .h-btns { flex-direction: column; gap: 10px; }
   .h-btns a { width: 100%; text-align: center; justify-content: center; }
 
-  /* ── STATS BAR ── */
+  /* — STATS BAR — */
   .stats-inner { flex-direction: column; gap: 24px; padding: 32px 5%; }
   .stat { border: none !important; padding: 0 !important; text-align: center; }
   .stat-n { font-size: 36px !important; }
 
-  /* ── SECTION PADDING ── */
+  /* — SECTION PADDING — */
   section { padding-left: 5% !important; padding-right: 5% !important; }
   .testi-wrap, .nc-wrap, .lst-wrap, .vals-wrap, .join-wrap,
   .ft, .cta-in, .contact-wrap { padding-left: 0 !important; padding-right: 0 !important; }
 
-  /* ── 2-COL GRIDS → STACK ── */
+  /* — 2-COL GRIDS → STACK — */
   .vals-wrap, .nc-hd, .nc-benefits-wrap, .sell-header,
   .contact-split, .testi-top, .comm-hd,
   [style*="grid-template-columns:1fr 1fr"],
@@ -563,81 +563,81 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
     display: block !important;
   }
 
-  /* ── 3-COL GRIDS → STACK ── */
+  /* — 3-COL GRIDS → STACK — */
   .t-grid, .why-grid, .lc-grid,
   [style*="grid-template-columns:repeat(3"],
   [style*="grid-template-columns:repeat(5"] {
     grid-template-columns: 1fr !important;
   }
 
-  /* ── FOOTER ── */
+  /* — FOOTER — */
   .ft-top { grid-template-columns: 1fr !important; gap: 32px; }
 
-  /* ── CTA BANNER ── */
+  /* — CTA BANNER — */
   .cta-in { flex-direction: column; gap: 24px; }
   .cta-r { align-items: flex-start !important; }
 
-  /* ── TESTIMONIALS ── */
+  /* — TESTIMONIALS — */
   .t-card { min-height: auto !important; }
 
-  /* ── COMMUNITIES CAROUSEL ── */
+  /* — COMMUNITIES CAROUSEL — */
   .c-carousel { padding: 0 3%; }
   .c-card { flex: 0 0 85% !important; height: 460px !important; }
   .c-nav { padding: 24px 5% 0; }
   .c-header { grid-template-columns: 1fr !important; gap: 20px; margin-bottom: 36px; padding: 0 5%; }
 
-  /* ── LUXURY / BUY listing cards ── */
+  /* — LUXURY / BUY listing cards — */
   .lc { min-width: 0 !important; }
   .lc-img { height: 220px !important; }
 
-  /* ── NC BENEFITS ── */
+  /* — NC BENEFITS — */
   .nc-benefits-wrap { flex-direction: column !important; }
   .nc-benefits-title { position: static !important; margin-bottom: 32px; }
 
-  /* ── CONTACT SPLIT ── */
+  /* — CONTACT SPLIT — */
   .contact-split { grid-template-columns: 1fr !important; min-height: auto !important; }
   .contact-img { height: 280px !important; position: relative; }
   .contact-right { padding: 40px 5% !important; }
   .contact-top { grid-template-columns: 1fr !important; display: block !important; }
   .contact-cols { grid-template-columns: 1fr !important; gap: 32px; }
 
-  /* ── SELL PANELS ── */
+  /* — SELL PANELS — */
   .sell-panels { grid-template-columns: 1fr !important; }
   .sell-panel { min-height: 160px !important; }
   .sell-header { max-width: 100% !important; padding: 60px 5% 40px !important; }
 
-  /* ── NEW CONSTRUCTION ── */
+  /* — NEW CONSTRUCTION — */
   .nc-wrap { padding: 60px 5% !important; }
   .nc-alert { padding: 40px 28px !important; }
   .nc-alert-content { text-align: center; }
 
-  /* ── ABOUT / EXP CARD ── */
+  /* — ABOUT / EXP CARD — */
   .vals-r { padding-top: 0 !important; }
   .exp-card { min-height: 260px !important; }
 
-  /* ── TEAM CARD (Christopher Nolan) ── */
+  /* — TEAM CARD (Christopher Nolan) — */
   [style*="grid-template-columns:1fr 1fr"] > div:first-child { min-height: 300px !important; }
 
-  /* ── JOIN WHY GRID ── */
+  /* — JOIN WHY GRID — */
   .why { padding: 32px 24px !important; }
 
-  /* ── SELL VALUATION STRIP ── */
+  /* — SELL VALUATION STRIP — */
   .sell-valuation [style*="display:flex"] { flex-direction: column !important; gap: 20px !important; }
   .sell-valuation a { width: 100% !important; text-align: center !important; justify-content: center !important; }
 
-  /* ── GENERAL FLEX → COLUMN ── */
+  /* — GENERAL FLEX → COLUMN — */
   .testi-cta, [style*="display:flex;align-items:center;justify-content:space-between"] {
     flex-direction: column !important;
     gap: 20px !important;
     align-items: flex-start !important;
   }
 
-  /* ── TYPOGRAPHY SCALE DOWN ── */
+  /* — TYPOGRAPHY SCALE DOWN — */
   h1 { font-size: clamp(28px, 7vw, 44px) !important; }
   h2 { font-size: clamp(24px, 6vw, 36px) !important; }
   h3 { font-size: clamp(20px, 5vw, 28px) !important; }
 
-  /* ── BUTTONS FULL WIDTH ON MOBILE ── */
+  /* — BUTTONS FULL WIDTH ON MOBILE — */
   .btn-g, .btn-o, .btn-n { display: block !important; text-align: center !important; width: 100% !important; box-sizing: border-box !important; }
 
   /* prevent horizontal overflow */
@@ -651,10 +651,70 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
   .c-card { flex: 0 0 92% !important; height: 400px !important; }
   .contact-img { height: 220px !important; }
 }
+
+/* — HAMBURGER MENU — */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:300;background:none;border:none}
+.hamburger span{display:block;width:24px;height:1.5px;background:#fff;transition:all .3s ease;transform-origin:center}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(20,20,20,0.98);z-index:250;flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;transition:opacity .35s ease}
+.mobile-menu.open{display:flex;opacity:1}
+.mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,6vw,42px);letter-spacing:.14em;color:#fff;text-decoration:none;transition:color .2s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu .m-contact-btn{background:var(--gold);color:var(--navy) !important;padding:14px 40px;font-size:18px}
+@media (max-width:768px){
+  .hamburger{display:flex}
+  .n-links{display:none !important}
+  .n-btn{display:none !important}
+}
+
+@media (max-width: 768px) {
+  /* Nav mobile fix */
+  nav { flex-wrap: nowrap; justify-content: space-between; }
+  .n-logo { flex: 1; }
+  .hamburger { margin-left: auto; }
+
+  /* Fix ft-bot privacy links */
+  .ft-bot { flex-direction: column; gap: 12px; text-align: center; }
+  .ft-bot p { font-size: 13px !important; }
+
+  /* Social icons */
+  .ft-brand > div:last-of-type { justify-content: flex-start; }
+
+  /* Fix contact split height */
+  .contact-img video { position: absolute; }
+
+  /* NC benefits 2-col — stack */
+  .nc-benefits-wrap { grid-template-columns: 1fr !important; gap: 40px; }
+  .nc-benefits-title { position: static !important; }
+
+  /* Why grid mobile */
+  .why-grid { grid-template-columns: 1fr !important; gap: 1px; }
+
+  /* Sell panels */
+  .sell-panels { grid-template-columns: 1fr !important; }
+
+  /* Lux listing grid */
+  .lc-grid { grid-template-columns: 1fr !important; }
+
+  /* Page hero text */
+  .pg-hero-content h1 { font-size: clamp(26px, 7vw, 40px) !important; }
+
+  /* Testimonial grid */
+  .t-grid { grid-template-columns: 1fr !important; gap: 1px; }
+
+  /* Contact cols */
+  .contact-cols { grid-template-columns: 1fr !important; }
+
+  /* Join why boxes */
+  .why-grid { grid-template-columns: 1fr !important; }
+}
 </style>
 </head><body>
 <!-- NAV --><nav>
   <a href="index.html" class="n-logo"><img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776445191/logonav_hghghu.png" alt="The Nolan Group" style="height:54px;width:auto;display:block"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   <div class="n-links">
     <a href="buy.html">Buy</a>
     <a href="sell.html">Sell</a>
@@ -665,6 +725,18 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
   </div>
   <a href="contact.html" class="n-btn">Contact Us</a>
 </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="buy.html">Buy</a>
+    <a href="sell.html">Sell</a>
+    <a href="luxury.html">Luxury</a>
+    <a href="communities.html">Communities</a>
+    <a href="about.html">About</a>
+    <a href="join.html">Careers</a>
+    <a href="contact.html" class="m-contact-btn">Contact Us</a>
+  </div>
 
 <section class="pg-hero">
   <div class="pg-hero-bg" style="background:url('https://res.cloudinary.com/dcuswyfur/image/upload/v1776459323/ffd_ci9bug.png') center/cover no-repeat"></div>
@@ -705,7 +777,7 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
 
 <section class="cta-ban">
   <video autoplay muted loop playsinline>
-    <source src="https://cdn.katalyst-crm.com/t1/cloudinary/veo-3.1-fast-generate-001_don_t_zoom_in_make_the_people_moving_lookin_at_each_other_and_showing_something_-0_z8zz2k.mp4" type="video/mp4">
+    <source src="https://res.cloudinary.com/dcuswyfur/video/upload/v1776482028/veo-3.1-fast-generate-001_don_t_zoom_in_make_the_people_moving_lookin_at_each_other_and_showing_something_-0_z8zz2k.mp4" type="video/mp4">
   </video>
   <div class="cta-in">
     <div>
@@ -726,6 +798,22 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
         <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776445191/logonav_hghghu.png" alt="The Nolan Group" style="height:40px;width:auto;display:block;margin-bottom:16px">
         <p>Florida's premier real estate team powered by eXp Realty, serving buyers, sellers, and investors across Florida's Treasure Coast and premier markets.</p>
         <p style="margin-top:14px;font-size:16px;color:rgba(255,255,255,0.24)">Monday – Saturday · 8am – 6pm</p>
+
+        <!-- Social Media -->
+        <div style="display:flex;gap:16px;margin-top:20px;align-items:center">
+          <a href="https://www.facebook.com/TheNolanGroupofExp" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/79716846/admin/feed/posts/" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCq33WSjtlPEU6whB3o1G2qA" target="_blank" rel="noopener" aria-label="YouTube" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1c1c1c"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@usarealtorchris" target="_blank" rel="noopener" aria-label="TikTok" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+          </a>
+        </div>
       </div>
       <div class="ft-col">
         <h5>Services</h5>
@@ -753,7 +841,7 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
     </div>
     <div class="ft-bot">
       <p>© 2025 The Nolan Group · Powered by eXp Realty · All rights reserved</p>
-      <div class="ft-contact"><strong>(772) 266-5359</strong> · info@thenolangroup.com</div>
+      <div class="ft-contact"><strong><a href="tel:7722223327" style="color:inherit;text-decoration:none">(772) 222-3327</a></strong> · info@thenolangroup.com</div>
     </div>
   </div>
 </footer>
@@ -761,5 +849,23 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
 window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>60);},{passive:true});
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')});},{threshold:0.1});
 document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+</script>
+<script>
+var ham = document.getElementById('hamburger');
+var mob = document.getElementById('mobileMenu');
+if(ham && mob){
+  ham.addEventListener('click', function(){
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+  mob.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
 </script>
 </body></html>
