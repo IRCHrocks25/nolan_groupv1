@@ -434,7 +434,7 @@ footer{background:var(--navy);border-top:0.5px solid rgba(200,164,90,0.13);paddi
 .ft-col a{display:block;font-size:16px;color:rgba(255,255,255,0.36);text-decoration:none;margin-bottom:9px;transition:color .2s}
 .ft-col a:hover{color:rgba(255,255,255,0.8)}
 .ft-bot{border-top:0.5px solid rgba(255,255,255,0.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
-.ft-bot p{font-size:16px;color:rgba(255,255,255,0.22)}
+.ft-bot p{font-size:15px;color:rgba(255,255,255,0.28)}
 .ft-contact{font-size:16px;color:rgba(255,255,255,0.34)}
 .ft-contact strong{color:var(--gold);font-weight:400}
 
@@ -664,7 +664,7 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
   /* Fix contact split height */
   .contact-img video { position: absolute; }
 
-  /* NC benefits 2-col — stack */
+  /* NC benefits 2-col → stack */
   .nc-benefits-wrap { grid-template-columns: 1fr !important; gap: 40px; }
   .nc-benefits-title { position: static !important; }
 
@@ -688,6 +688,178 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
 
   /* Join why boxes */
   .why-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ════════════════════════════════════════
+   COMPREHENSIVE MOBILE FIXES
+   ════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── NAV: hide links, show hamburger only ── */
+  .n-links { display: none !important; }
+  .n-btn   { display: none !important; }
+  .hamburger { display: flex !important; }
+  nav { padding: 14px 5% !important; }
+
+  /* ── HERO: 3-line headline ── */
+  .h-content h1 {
+    font-size: clamp(26px, 7.5vw, 38px) !important;
+    line-height: 1.18 !important;
+  }
+  .h-sub { font-size: 14px !important; max-width: 100% !important; }
+
+  /* ── STATS: single column ── */
+  .stats-inner {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+  .stat {
+    border-right: none !important;
+    border-bottom: 0.5px solid rgba(200,164,90,0.1);
+    padding: 20px 24px !important;
+  }
+  .stat:last-child { border-bottom: none; }
+  .stat-n { font-size: 36px !important; }
+
+  /* ── SERVICES: stack tabs + explore below content ── */
+  .svc-tabs {
+    grid-template-columns: 1fr !important;
+    gap: 1px;
+  }
+  .svc-tab {
+    padding: 20px 20px !important;
+  }
+  .svc-panel-body {
+    padding: 36px 20px !important;
+  }
+  .svc-panel-body p { max-width: 100% !important; }
+  .sc-lnk {
+    display: inline-flex !important;
+    margin-top: 8px;
+  }
+
+  /* ── FOOTER: copyright + privacy/terms ── */
+  .ft-bot {
+    flex-direction: column !important;
+    gap: 10px !important;
+    text-align: center !important;
+  }
+  .ft-bot p { font-size: 13px !important; }
+  .ft-top {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* ── BUY PAGE: process 2-col → stack ── */
+  .proc-wrap, .proc-grid,
+  [style*="grid-template-columns:1fr 2fr"],
+  [style*="grid-template-columns:2fr 1fr"],
+  [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    display: block !important;
+  }
+  .proc-l { margin-bottom: 32px; }
+  .sv-steps { padding-left: 0 !important; }
+
+  /* ── SELL: panels stack ── */
+  .sell-panels {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+  }
+  .sell-panel {
+    min-height: 120px !important;
+    padding: 24px 20px !important;
+  }
+  .sell-valuation-inner {
+    flex-direction: column !important;
+    gap: 20px !important;
+    text-align: center;
+  }
+
+  /* ── LUXURY: sections stack ── */
+  .lux-intro, .lux-grid, .lux-row {
+    grid-template-columns: 1fr !important;
+    display: block !important;
+  }
+  .lux-r { min-height: 280px !important; }
+  .lux-l, .lux-r { width: 100% !important; }
+
+  /* ── LUXURY LISTINGS ── */
+  .lc-grid { grid-template-columns: 1fr !important; }
+  .lst-hd  { grid-template-columns: 1fr !important; display: block !important; }
+  .lst-hd-l { margin-bottom: 24px; }
+
+  /* ── CONTACT SPLIT → STACK ── */
+  .contact-split {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    display: block !important;
+  }
+  .contact-img {
+    height: 260px !important;
+    position: relative !important;
+  }
+  .contact-img video {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .contact-right {
+    padding: 36px 5% !important;
+  }
+  .contact-top { display: block !important; }
+  .contact-heading { font-size: clamp(28px,8vw,42px) !important; }
+  .contact-cols { grid-template-columns: 1fr !important; gap: 28px; }
+
+  /* ── JOIN: why boxes stack ── */
+  .why-grid { grid-template-columns: 1fr !important; }
+  .why { text-align: left !important; }
+
+  /* ── TESTIMONIALS ── */
+  .t-grid { grid-template-columns: 1fr !important; }
+  .t-card { min-height: auto !important; }
+
+  /* ── NC BENEFITS ── */
+  .nc-benefits-wrap {
+    grid-template-columns: 1fr !important;
+    display: block !important;
+  }
+  .nc-benefits-title { position: static !important; margin-bottom: 28px; }
+
+  /* ── COMMUNITIES CAROUSEL CARDS ── */
+  .c-card { flex: 0 0 88% !important; height: 400px !important; }
+  .c-header { display: block !important; padding: 0 5% !important; }
+
+  /* ── ABOUT TEAM CARD ── */
+  [style*="grid-template-columns:1fr 1fr"] > div:first-child {
+    min-height: 260px !important;
+  }
+
+  /* ── PAGE HERO ── */
+  .pg-hero { padding: 110px 5% 56px !important; }
+  .pg-hero-content h1 { font-size: clamp(26px,7vw,40px) !important; }
+
+  /* ── CTA BANNER ── */
+  .cta-in {
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 0 5% !important;
+  }
+  .cta-r { flex-direction: column; gap: 10px; }
+  .cta-r a { width: 100%; text-align: center; justify-content: center; }
+
+  /* ── GENERAL BUTTONS FULL WIDTH ── */
+  .h-btns { flex-direction: column; gap: 10px; }
+  .h-btns a { width: 100% !important; text-align: center !important; justify-content: center !important; }
+
+  /* ── OVERFLOW GUARD ── */
+  body { overflow-x: hidden !important; }
+  * { max-width: 100%; box-sizing: border-box; }
+  img, video { max-width: 100% !important; }
 }
 </style>
 </head>
@@ -909,8 +1081,8 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
       <div class="ft-brand">
         <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776445191/logonav_hghghu.png" alt="The Nolan Group" style="height:40px;width:auto;display:block;margin-bottom:16px">
         <p>Florida's premier real estate team powered by eXp Realty, serving buyers, sellers, and investors across Florida's Treasure Coast and premier markets.</p>
-        <p style="margin-top:14px;font-size:16px;color:rgba(255,255,255,0.24)">Monday — Saturday · 8am — 6pm</p>
-
+        <p style="margin-top:14px;font-size:16px;color:rgba(255,255,255,0.24)">Monday – Saturday · 8am – 6pm</p>
+      
         <!-- Social Media -->
         <div style="display:flex;gap:16px;margin-top:20px;align-items:center">
           <a href="https://www.facebook.com/TheNolanGroupofExp" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
@@ -952,7 +1124,7 @@ section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
       </div>
     </div>
     <div class="ft-bot">
-      <p>© 2025 The Nolan Group · Powered by eXp Realty · All rights reserved</p>
+      <p>© 2025 The Nolan Group · All rights reserved &nbsp;&nbsp;<a href="privacy.html" style="color:rgba(255,255,255,0.4);text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Terms &amp; Conditions</a></p>
       <div class="ft-contact"><strong><a href="tel:7722223327" style="color:inherit;text-decoration:none">(772) 222-3327</a></strong> · info@thenolangroup.com</div>
     </div>
   </div>
