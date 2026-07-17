@@ -500,6 +500,12 @@ footer{background:var(--navy);border-top:0.5px solid rgba(200,164,90,0.13);paddi
 .cf-submit:hover .cf-submit-arrow{stroke:var(--navy)}
 .cf-submit-arrow{transition:stroke .3s}
 .cf-submit-text{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid)}
+.cf-hp{position:absolute!important;left:-9999px!important;top:auto;width:1px;height:1px;overflow:hidden}
+.cf-status{margin-top:16px;font-size:14px;line-height:1.5;min-height:1.2em}
+.cf-status.err{color:#b3261e}
+.cf-status.ok{color:var(--navy)}
+.cf-group input.invalid,.cf-group textarea.invalid,.cf-group select.invalid{border-color:#b3261e}
+.cf-submit[disabled]{opacity:.55;cursor:default;pointer-events:none}
 
 @media (max-width: 768px) {
   /* Nav mobile fix */
@@ -755,26 +761,31 @@ footer{background:var(--navy);border-top:0.5px solid rgba(200,164,90,0.13);paddi
       <!-- Form -->
       <div>
         <h4 style="font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:16px;font-weight:500;color:var(--navy);margin-bottom:20px">Send a Message</h4>
-        <div class="cf-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
-        <div class="cf-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
-        <div class="cf-group"><label>Phone</label><input type="tel" placeholder="(772) 000-0000"></div>
-        <div class="cf-group"><label>I'm interested in</label>
-          <select>
-            <option value="">Select a service</option>
-            <option>Buying a Home</option>
-            <option>Selling My Home</option>
-            <option>Luxury Properties</option>
-            <option>New Construction</option>
-            <option>Just Exploring</option>
-          </select>
-        </div>
-        <div class="cf-group"><label>Message</label><textarea rows="3" placeholder="Tell us about your goals..."></textarea></div>
-        <button type="button" class="cf-submit">
-          <div class="cf-submit-circle">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="var(--gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="cf-submit-arrow"/></svg>
+        <form id="contactForm" novalidate>
+          <div class="cf-group"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required autocomplete="name"></div>
+          <div class="cf-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required autocomplete="email"></div>
+          <div class="cf-group"><label>Phone</label><input type="tel" name="phone" placeholder="(772) 000-0000" autocomplete="tel"></div>
+          <div class="cf-group"><label>I'm interested in</label>
+            <select name="service">
+              <option value="">Select a service</option>
+              <option>Buying a Home</option>
+              <option>Selling My Home</option>
+              <option>Luxury Properties</option>
+              <option>New Construction</option>
+              <option>Just Exploring</option>
+            </select>
           </div>
-          <span class="cf-submit-text">Submit Request</span>
-        </button>
+          <div class="cf-group"><label>Message</label><textarea name="message" rows="3" placeholder="Tell us about your goals..." required></textarea></div>
+          <!-- honeypot: hidden from people, catches bots -->
+          <div class="cf-hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+          <button type="submit" class="cf-submit">
+            <div class="cf-submit-circle">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="var(--gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="cf-submit-arrow"/></svg>
+            </div>
+            <span class="cf-submit-text">Submit Request</span>
+          </button>
+          <p class="cf-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
 
     </div>
@@ -853,5 +864,52 @@ if(ham && mob){
     });
   });
 }
+</script>
+<script>
+(function(){
+  var form=document.getElementById('contactForm');
+  if(!form)return;
+  var status=form.querySelector('.cf-status');
+  var btn=form.querySelector('.cf-submit');
+  var btnText=form.querySelector('.cf-submit-text');
+  var origText=btnText?btnText.textContent:'Submit Request';
+  function el(n){return form.elements[n];}
+  function val(n){var e=el(n);return e?String(e.value).trim():'';}
+  function setStatus(msg,type){if(!status)return;status.textContent=msg;status.className='cf-status'+(type?' '+type:'');}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    form.querySelectorAll('.invalid').forEach(function(x){x.classList.remove('invalid');});
+    var data={name:val('name'),email:val('email'),phone:val('phone'),service:(el('service')?el('service').value:''),message:val('message'),company:(el('company')?el('company').value:'')};
+    var bad=[];
+    if(!data.name)bad.push('name');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))bad.push('email');
+    if(!data.message)bad.push('message');
+    if(bad.length){
+      bad.forEach(function(n){var x=el(n);if(x&&x.classList)x.classList.add('invalid');});
+      setStatus('Please add your name, a valid email, and a message.','err');
+      return;
+    }
+    if(btn)btn.setAttribute('disabled','');
+    if(btnText)btnText.textContent='Sending…';
+    setStatus('','');
+    fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};},function(){return {ok:r.ok,body:{}};});})
+      .then(function(res){
+        if(res.ok&&res.body&&res.body.ok){
+          form.reset();
+          setStatus("Thanks — your message has been sent. We'll be in touch shortly.",'ok');
+        }else{
+          setStatus((res.body&&res.body.error)?res.body.error:'Something went wrong. Please try again or email info@thenolangroup.com.','err');
+        }
+      })
+      .catch(function(){
+        setStatus('Network error. Please try again or email info@thenolangroup.com.','err');
+      })
+      .then(function(){
+        if(btn)btn.removeAttribute('disabled');
+        if(btnText)btnText.textContent=origText;
+      });
+  });
+})();
 </script>
 </body></html>
