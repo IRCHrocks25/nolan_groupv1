@@ -1,1060 +1,195 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxury Properties — The Nolan Group</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-<style>@font-face{font-family:'Aeonik Pro';src:url('AeonikPro-Light.woff2') format('woff2');font-weight:300;font-display:swap}@font-face{font-family:'Aeonik Pro';src:url('AeonikPro-Regular.woff2') format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'Aeonik Pro';src:url('AeonikPro-Medium.woff2') format('woff2');font-weight:500;font-display:swap}</style>
-<style>
-@font-face{font-family:'Aeonik Pro';src:url('AeonikPro-Light.woff2') format('woff2'),url('AeonikPro-Light.woff') format('woff');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Aeonik Pro';src:url('AeonikPro-Regular.woff2') format('woff2'),url('AeonikPro-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Aeonik Pro';src:url('AeonikPro-Medium.woff2') format('woff2'),url('AeonikPro-Medium.woff') format('woff');font-weight:500;font-style:normal;font-display:swap}
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Luxury Properties &mdash; The Nolan Group</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.katalyst-crm.com/t1/nolan-group/luxury.css" rel="stylesheet"/>
+
+<meta content="Luxury real estate on Florida's Treasure Coast. The Nolan Group represents oceanfront, riverfront, and club estates in Vero Beach and Orchid Island." name="description"/>
+<link href="https://www.thenolangroup.com/luxury" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="The Nolan Group" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="Luxury Properties &mdash; The Nolan Group" property="og:title"/>
+<meta content="Luxury real estate on Florida's Treasure Coast. The Nolan Group represents oceanfront, riverfront, and club estates in Vero Beach and Orchid Island." property="og:description"/>
+<meta content="https://www.thenolangroup.com/luxury" property="og:url"/>
+<meta content="https://cdn.katalyst-crm.com/t1/cloudinary/55_pkknzk.jpg" property="og:image"/>
+<meta content="The Nolan Group, Treasure Coast real estate" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Luxury Properties &mdash; The Nolan Group" name="twitter:title"/>
+<meta content="Luxury real estate on Florida's Treasure Coast. The Nolan Group represents oceanfront, riverfront, and club estates in Vero Beach and Orchid Island." name="twitter:description"/>
+<meta content="https://cdn.katalyst-crm.com/t1/cloudinary/55_pkknzk.jpg" name="twitter:image"/>
 
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#1c1c1c;--navy-2:#252525;--navy-3:#2e2e2e;
-  --gold:#c9ad98;--gold-lt:#d9c3b3;
-  --cream:#eae3e0;--off:#f9f6ee;--gold-dark:#7a5c45;
-  --mid:#4a5568;--light:#8a96a4;
-  --line:rgba(13,27,42,0.09);
-}
-html{scroll-behavior:smooth}
-body{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;background:var(--off);color:var(--navy);overflow-x:hidden}
-em{font-style:normal}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;background:transparent;padding:20px 7%;width:100%;transition:background .4s,backdrop-filter .4s}
-nav.scrolled{background:rgba(28,28,28,0.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:0.5px solid rgba(200,164,90,0.1)}
-.n-logo{display:flex;align-items:center;margin-right:auto;text-decoration:none;flex-shrink:0}
-.n-links{display:flex;gap:2px;margin-right:10px}
-.n-links a{color:rgba(255,255,255,0.65);font-size:16px;text-decoration:none;padding:7px 12px;border-radius:0;transition:all .2s;white-space:nowrap;text-transform:uppercase;letter-spacing:.14em;font-family:'Bebas Neue',sans-serif}
-.n-links a:hover{color:#fff;background:rgba(255,255,255,0.09)}
-.n-btn{background:var(--gold);color:var(--navy);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.12em;padding:9px 22px;border-radius:0;text-decoration:none;white-space:nowrap;transition:all .2s}
-.n-btn:hover{background:var(--gold-lt);transform:translateY(-1px);box-shadow:0 3px 12px rgba(201,173,152,0.2)}
-
-/* ── HERO ── */
-.hero{position:relative;height:100vh;min-height:720px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
-
-/* slideshow layers */
-.h-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease;z-index:0}
-.h-slide.active{opacity:1;z-index:1}
-.h-slide-bg{position:absolute;inset:0;background-size:cover!important;background-position:center!important;transform:scale(1.06);transition:transform 8s ease}
-.h-slide.active .h-slide-bg{transform:scale(1)}
-.h-slide-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(20,20,20,0.80) 0%,rgba(20,20,20,0.52) 55%,rgba(20,20,20,0.28) 100%)}
-
-/* slide counter */
-.h-counter{
-  position:absolute;right:7%;top:50%;transform:translateY(-50%);
-  z-index:4;display:flex;flex-direction:column;gap:10px;align-items:center;
-  animation:fadeUp .9s .6s ease both;
-}
-.h-counter-dot{width:2px;height:20px;background:rgba(255,255,255,0.2);border-radius:2px;transition:background .4s,height .4s}
-.h-counter-dot.active{background:var(--gold);height:32px}
-
-/* progress bar */
-.h-progress{position:absolute;bottom:0;left:0;right:0;height:2px;z-index:4;background:rgba(255,255,255,0.06)}
-.h-progress-fill{height:100%;background:var(--gold);width:0%;transition:width 6s linear}
-
-.h-grid{position:absolute;inset:0;z-index:3;background-image:linear-gradient(rgba(200,164,90,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(200,164,90,0.02) 1px,transparent 1px);background-size:72px 72px;pointer-events:none}
-.h-content{position:relative;z-index:4;padding:0 7%;max-width:920px;animation:fadeUp .9s ease both}
-h1{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(40px,5.3vw,68px);font-weight:300;line-height:1.1;color:#fff;letter-spacing:-.02em;margin-bottom:22px;text-shadow:0 2px 24px rgba(0,0,0,0.35)}
-.h-sub{font-size:18px;font-weight:300;line-height:1.78;color:rgba(255,255,255,0.78);max-width:620px;margin-bottom:38px;text-shadow:0 1px 12px rgba(0,0,0,0.4)}
-.h-btns{display:flex;gap:12px;flex-wrap:wrap}
-.stats{
-  position:absolute;bottom:0;left:0;right:0;z-index:4;
-  display:flex;justify-content:center;
-  background:rgba(28,28,28,0.68);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-top:0.5px solid rgba(200,164,90,0.15);
-  animation:fadeUp .9s .25s ease both;
-}
-.stats-inner{display:grid;grid-template-columns:repeat(3,1fr);max-width:860px;width:100%}
-.stat{padding:28px 40px;border-right:0.5px solid rgba(200,164,90,0.1);text-align:center}
-.stat:last-child{border-right:none}
-.stat-n{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:52px;font-weight:300;color:var(--gold-lt);line-height:1;margin-bottom:8px;letter-spacing:-.03em}
-.stat-l{font-family:'Bebas Neue',sans-serif;font-size:16px;color:rgba(255,255,255,0.4);letter-spacing:.22em;text-transform:uppercase}
-.scroll-hint{position:absolute;bottom:115px;left:7%;z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeUp .9s .5s ease both}
-.scroll-hint span{font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
-.s-line{width:1px;height:34px;background:linear-gradient(to bottom,rgba(200,164,90,0.65),transparent);animation:sline 2s ease-in-out infinite}
-@keyframes sline{0%,100%{opacity:.3;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
-
-/* ── BUTTONS ── */
-.btn-g{background:var(--gold);color:var(--navy);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.14em;padding:13px 32px;border-radius:0;text-decoration:none;transition:background .35s ease,transform .35s ease,box-shadow .35s ease;display:inline-flex;align-items:center;gap:8px}
-.btn-g:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,173,152,0.22)}
-.btn-o{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.82);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.12em;padding:13px 32px;border-radius:0;text-decoration:none;border:0.5px solid rgba(255,255,255,0.2);transition:background .35s ease,transform .35s ease,box-shadow .35s ease,border-color .35s ease}
-.btn-o:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.15);border-color:rgba(255,255,255,0.4)}
-.btn-n{background:transparent;color:var(--mid);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;padding:13px 28px;border-radius:0;text-decoration:none;border:0.5px solid rgba(13,27,42,0.18);transition:background .35s ease,transform .35s ease,box-shadow .35s ease,color .35s ease,border-color .35s ease}
-.btn-n:hover{background:var(--navy);border-color:var(--navy);color:#fff;transform:translateY(-1px);box-shadow:0 4px 14px rgba(28,28,28,0.12)}
-
-/* ── SECTION BASE ── */
-section{padding:96px 7%}
-.sec-ey{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px}
-.sec-ey::before{content:'';display:block;width:20px;height:1px;background:var(--gold)}
-h2{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(32px,4.2vw,56px);font-weight:300;line-height:1.1;color:var(--navy);letter-spacing:-.02em;margin-bottom:22px}
-.w2{color:#fff!important}
-.dg{height:1px;background:linear-gradient(to right,transparent,rgba(200,164,90,0.3),transparent);margin:0 7%}
-
-/* ── VALUE PROP ── */
-.vp{background:var(--off);padding:0;overflow:hidden}
-.vp-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
-.vp-l{padding-right:80px}
-.vp-l p{font-size:16px;line-height:1.82;color:var(--mid);margin-bottom:18px}
-
-/* photo values panel */
-.values-photo{position:relative;overflow:hidden;min-height:480px}
-.values-photo-bg{position:absolute;inset:0;background:url('https://cdn.katalyst-crm.com/t1/cloudinary/55_pkknzk.jpg') center/cover no-repeat}
-
-/* ── HORIZONTAL ACCORDION TABS ── */
-.htabs{background:var(--navy);display:flex;flex-direction:column;height:100%}
-.htab{border-bottom:0.5px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;flex-shrink:0}
-.htab:last-child{border-bottom:none}
-.htab.active{flex:1}
-.htab-header{
-  display:flex;align-items:center;gap:18px;
-  padding:0 36px;cursor:pointer;
-  transition:background .2s;
-  position:relative;
-  flex:0 0 72px;height:72px;
-}
-.htab-header::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
-  background:var(--gold);transform:scaleY(0);transform-origin:top;
-  transition:transform .35s ease;
-}
-.htab.active .htab-header::before{transform:scaleY(1)}
-.htab-header:hover{background:rgba(255,255,255,0.03)}
-.htab.active .htab-header{background:rgba(255,255,255,0.04)}
-.htab-num{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:16px;font-weight:300;color:rgba(200,164,90,0.4);letter-spacing:.1em;min-width:22px;transition:color .3s}
-.htab.active .htab-num{color:var(--gold)}
-.htab-label{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:21px;font-weight:300;color:#fff;flex:1;line-height:1.1}
-.htab-arrow{flex-shrink:0;transition:transform .35s ease;opacity:0.4}
-.htab.active .htab-arrow{transform:rotate(180deg);opacity:1}
-.htab-body{
-  display:grid;grid-template-columns:1fr 1fr;
-  flex:1;overflow:hidden;
-  opacity:0;transition:opacity .35s ease;
-  min-height:0;
-}
-.htab.active .htab-body{opacity:1}
-.htab-img{position:relative;overflow:hidden;min-height:0}
-.htab-img-bg{position:absolute;inset:0;background-size:cover!important;background-position:center!important;transition:transform .5s ease}
-.htab.active .htab-img-bg{transform:scale(1.03)}
-.htab-content{background:var(--navy-2);padding:28px 32px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
-.htab-content p{font-size:16px;line-height:1.75;color:rgba(255,255,255,0.55)}
-
-
-.svc{background:var(--navy)}
-.svc-hd{max-width:1200px;margin:0 auto 48px;padding-top:96px;padding-left:0;padding-right:0}
-.svc-tabs{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.05)}
-.svc-tab{background:var(--navy);border:none;cursor:pointer;padding:28px 36px;text-align:left;display:flex;align-items:center;gap:20px;position:relative;transition:background .25s}
-.svc-tab::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
-.svc-tab.active{background:var(--navy-2)}
-.svc-tab.active::after{transform:scaleX(1)}
-.svc-tab:hover:not(.active){background:rgba(255,255,255,0.03)}
-.svc-tab-n{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:36px;font-weight:300;color:rgba(200,164,90,0.2);line-height:1;flex-shrink:0;transition:color .25s}
-.svc-tab.active .svc-tab-n{color:rgba(200,164,90,0.55)}
-.svc-tab-title{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.2;transition:color .25s}
-.svc-tab.active .svc-tab-title{color:#fff}
-.svc-tab:hover:not(.active) .svc-tab-title{color:rgba(255,255,255,0.7)}
-.svc-panels{max-width:1200px;margin:0 auto;padding-bottom:96px}
-.svc-panel{display:none}
-.svc-panel.active{display:grid;grid-template-columns:1fr 1fr}
-.svc-panel-img{position:relative;min-height:480px;overflow:hidden}
-.svc-img-bg{position:absolute;inset:0;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}
-.svc-img-bg::after{content:'';position:absolute;inset:0;background:rgba(28,28,28,0.35)}
-.svc-panel-body{background:var(--navy-2);padding:60px 52px;display:flex;flex-direction:column;justify-content:center}
-.svc-panel-body .sc-n{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:72px;font-weight:300;color:rgba(200,164,90,0.08);line-height:1;margin-bottom:20px}
-.svc-panel-body h3{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:34px;font-weight:300;color:#fff;margin-bottom:18px;letter-spacing:-.01em}
-.svc-panel-body p{font-size:16px;line-height:1.78;color:rgba(255,255,255,0.52);margin-bottom:36px;max-width:340px}
-.sc-lnk{display:inline-flex;align-items:center;gap:8px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap .2s}
-.sc-lnk:hover{gap:13px;color:var(--gold-lt)}
-
-/* ── LISTINGS ── */
-.lst{background:var(--cream)}
-.lst-wrap{max-width:1200px;margin:0 auto}
-.lst-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:40px}
-.lst-hd p{font-size:16px;color:var(--mid);max-width:400px;line-height:1.75}
-.lc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.lc{background:#fff;border:0.5px solid rgba(13,27,42,0.07);overflow:hidden}
-.lc-img{height:220px;position:relative;display:flex;align-items:center;justify-content:center}
-.lc-bg{position:absolute;inset:0}
-.lc-badge{position:absolute;top:14px;left:14px;background:var(--gold);color:var(--navy);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px}
-.lc-price{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:30px;font-weight:400;color:rgba(255,255,255,0.9);z-index:1}
-.lc-body{padding:22px}
-.lc-body h4{font-size:16px;font-weight:500;color:var(--navy);margin-bottom:5px}
-.lc-loc{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--light);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
-.lc-meta{display:flex;gap:18px;padding-top:14px;border-top:0.5px solid var(--line)}
-.lc-meta span{font-size:16px;color:var(--mid)}
-.lc-meta strong{display:block;font-size:16px;font-weight:500;color:var(--navy);margin-bottom:2px}
-
-/* ── PROCESS ── */
-.proc{background:var(--off)}
-.proc-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
-.proc-l p{font-size:16px;line-height:1.82;color:var(--mid);margin-bottom:18px}
-
-/* ── ANIMATED STEPS ── */
-.steps-visual{position:relative;padding:8px 0}
-.sv-track{position:absolute;left:19px;top:28px;bottom:28px;width:2px;background:rgba(200,164,90,0.12);border-radius:2px;overflow:hidden}
-.sv-line-fill{width:100%;height:0%;background:linear-gradient(to bottom,var(--gold),var(--gold-lt));border-radius:2px;transition:height 1.2s cubic-bezier(.4,0,.2,1)}
-.sv-steps{display:flex;flex-direction:column;gap:0;position:relative;z-index:1}
-
-.sv-step{display:flex;gap:20px;padding:10px 0;opacity:0;transform:translateX(20px);transition:opacity .5s ease,transform .5s ease}
-.sv-step.visible{opacity:1;transform:translateX(0)}
-
-.sv-node{position:relative;flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin-top:4px}
-.sv-node-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(200,164,90,0.25);transition:border-color .4s,transform .4s}
-.sv-step.visible .sv-node-ring{border-color:rgba(200,164,90,0.7);transform:scale(1.08)}
-.sv-node-dot{position:absolute;inset:6px;border-radius:50%;background:var(--off);border:1px solid rgba(200,164,90,0.2);transition:background .4s,border-color .4s}
-.sv-step.visible .sv-node-dot{background:var(--gold);border-color:var(--gold)}
-.sv-node-num{position:relative;z-index:1;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.06em;color:var(--mid);transition:color .4s}
-.sv-step.visible .sv-node-num{color:#fff}
-
-.sv-card{flex:1;background:#fff;border:0.5px solid var(--line);padding:20px 22px;display:flex;gap:16px;align-items:flex-start;transition:border-color .4s,box-shadow .4s;margin-bottom:10px}
-.sv-step.visible .sv-card{border-color:rgba(200,164,90,0.3);box-shadow:0 2px 20px rgba(200,164,90,0.08)}
-.sv-icon{flex-shrink:0;margin-top:2px;opacity:0.4;transition:opacity .4s}
-.sv-step.visible .sv-icon{opacity:1}
-.sv-card-body h4{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
-.sv-card-body p{font-size:16px;line-height:1.68;color:var(--mid)}
-
-/* ── SELL SECTION ── */
-.sell{background:var(--navy);padding:0;overflow:hidden}
-.sell-header{padding:80px 7% 56px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
-
-/* single image with 5 column overlays */
-.sell-panels{
-  position:relative;
-  height:560px;
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-}
-/* shared background image under all columns */
-.sell-bg-img{
-  position:absolute;inset:0;
-  background:url('https://cdn.katalyst-crm.com/t1/cloudinary/ffd_ci9bug.png') center/cover no-repeat;
-  z-index:0;
-}
-/* vertical dividers between columns */
-.sell-panel{
-  position:relative;z-index:1;
-  border-right:0.5px solid rgba(255,255,255,0.1);
-  transition:background .4s;
-  cursor:default;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  padding:36px 28px;
-  overflow:hidden;
-}
-.sell-panel:last-child{border-right:none}
-/* dark scrim per column — darkens on hover */
-.sell-panel::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(18,18,18,0.85) 0%,rgba(18,18,18,0.2) 60%,rgba(18,18,18,0.05) 100%);
-  transition:background .4s;z-index:0;
-}
-.sell-panel:hover::before{
-  background:linear-gradient(to top,rgba(18,18,18,0.96) 0%,rgba(18,18,18,0.55) 60%,rgba(18,18,18,0.12) 100%);
-}
-/* gold bottom line on hover */
-.sell-panel::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:var(--gold);transform:scaleX(0);transform-origin:left;
-  transition:transform .4s ease;z-index:2;
-}
-.sell-panel:hover::after{transform:scaleX(1)}
-
-.sell-panel-index{display:none}
-
-.sell-panel-body{position:relative;z-index:1}
-.sell-panel-num{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(56px,7vw,96px);font-weight:400;letter-spacing:0;
-  color:rgba(255,255,255,0.1);line-height:1;
-  margin-bottom:10px;
-  transition:color .35s;
-}
-.sell-panel:hover .sell-panel-num{color:rgba(200,164,90,0.25)}
-.sell-panel-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(17px,1.6vw,22px);font-weight:400;color:#fff;letter-spacing:.02em;
-  line-height:1.15;margin-bottom:0;
-  transition:margin .35s;
-  text-shadow:0 1px 12px rgba(0,0,0,0.5);
-}
-.sell-panel:hover .sell-panel-title{margin-bottom:13px}
-.sell-panel-desc{
-  font-size:16px;line-height:1.65;color:rgba(255,255,255,0.72);letter-spacing:0;
-  max-height:0;overflow:hidden;opacity:0;
-  transition:max-height .4s ease,opacity .3s ease .08s;
-  text-shadow:0 1px 8px rgba(0,0,0,0.4);
-}
-.sell-panel:hover .sell-panel-desc{max-height:80px;opacity:1}
-
-.sell-valuation{background:var(--gold);padding:56px 7%;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;max-width:100%;margin:0}
-
-/* ── LUXURY ── */
-.lux{background:var(--cream)}
-.lux-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.lux-r{padding:72px 52px;position:relative;overflow:hidden;min-height:480px;display:flex;flex-direction:column;justify-content:flex-end}
-.lux-r::before{content:'';position:absolute;bottom:-60px;right:-60px;width:200px;height:200px;border-radius:50%;border:1px solid rgba(200,164,90,0.09)}
-.lux-r h3{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:25px;font-weight:300;color:#fff;line-height:1.35;margin-bottom:14px}
-.lux-r p{font-size:16px;line-height:1.78;color:rgba(255,255,255,0.48)}
-
-/* ── NEW CONSTRUCTION ── */
-.nc{background:var(--navy)}
-.nc-wrap{max-width:1200px;margin:0 auto}
-.nc-hd{display:grid;grid-template-columns:1fr 1fr;gap:72px;margin-bottom:56px}
-.nc-hd p{font-size:16px;line-height:1.82;color:rgba(255,255,255,0.48);align-self:end}
-.nc-alert{border:0.5px solid rgba(200,164,90,0.2);padding:34px 38px;position:relative}
-.nc-alert::before{content:'◆';position:absolute;top:-10px;left:38px;background:var(--navy);padding:0 10px;color:var(--gold);font-size:16px}
-.nc-alert h4{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:22px;font-weight:400;color:#fff;margin-bottom:12px}
-.nc-alert p{font-size:16px;line-height:1.78;color:rgba(255,255,255,0.48)}
-
-/* ── COMMUNITIES CAROUSEL ── */
-.comm{background:var(--cream);padding:96px 0 80px}
-.comm-wrap{max-width:1200px;margin:0 auto;padding:0 7%;margin-bottom:52px}
-.comm-hd{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:0}
-.comm-hd p{font-size:16px;line-height:1.82;color:var(--mid);align-self:end}
-.comm-carousel-wrap{position:relative;overflow:hidden;padding:0 7%}
-.comm-track{display:flex;flex-direction:row;gap:16px;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
-.comm-card{flex:0 0 calc(50% - 8px);height:140px;overflow:hidden;cursor:pointer;background:#fff;border:0.5px solid rgba(13,27,42,0.07);transition:box-shadow .3s,transform .3s;position:relative;display:grid;grid-template-columns:220px 1fr}
-.comm-card:hover{box-shadow:0 6px 32px rgba(13,27,42,0.12);transform:translateY(-3px)}
-.comm-card-bg{width:280px;height:100%;flex-shrink:0;position:relative;overflow:hidden}
-.comm-card-bg-img{position:absolute;inset:0;background-size:cover!important;background-position:center!important;transition:transform .5s ease}
-.comm-card:hover .comm-card-bg-img{transform:scale(1.07)}
-.comm-card-body{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-left:0.5px solid rgba(13,27,42,0.06)}
-.comm-card-meta{flex:1}
-.comm-card-num{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.2em;color:var(--gold);display:block;margin-bottom:7px}
-.comm-card-title{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:21px;font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:7px}
-.comm-card-desc{font-size:16px;line-height:1.65;color:var(--mid);max-width:460px}
-.comm-card-lnk{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0;border:0.5px solid rgba(13,27,42,0.18);padding:10px 20px;transition:all .25s;white-space:nowrap}
-.comm-card-lnk:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
-.comm-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform .35s ease}
-.comm-card:hover::before{transform:scaleY(1)}
-.comm-nav{display:flex;justify-content:center;gap:12px;margin-top:36px}
-.comm-btn{width:44px;height:44px;border-radius:50%;border:0.5px solid rgba(13,27,42,0.18);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.comm-btn:hover{background:var(--navy);border-color:var(--navy)}
-.comm-btn:hover svg path{stroke:#fff}
-.comm-btn svg path{stroke:var(--navy);transition:stroke .2s}
-
-
-/* ── ABOUT / VALUES ── */
-.vals{background:var(--cream)}
-.vals-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.val-list{display:flex;flex-direction:column}
-.vi{padding:21px 0;border-bottom:0.5px solid var(--line);display:flex;gap:17px}
-.v-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:10px;flex-shrink:0}
-.vi h4{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.08em;color:var(--navy);margin-bottom:6px}
-.vi p{font-size:16px;line-height:1.68;color:var(--mid)}
-.vals-r{padding-top:52px}
-.exp-card{position:relative;overflow:hidden;margin-bottom:20px;min-height:220px;display:flex;align-items:flex-end}
-.exp-card-bg{position:absolute;inset:0;background:url('https://cdn.katalyst-crm.com/t1/cloudinary/55_pkknzk.jpg') center/cover no-repeat}
-.exp-card-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(28,28,28,0.88) 0%,rgba(28,28,28,0.7) 60%,rgba(28,28,28,0.5) 100%)}
-.exp-card-content{position:relative;z-index:2;padding:36px 38px}
-.exp-card h3{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:300;color:#fff;line-height:1.55}
-.exp-card p{font-size:16px;line-height:1.78;color:rgba(255,255,255,0.48)}
-
-/* ── TESTIMONIALS ── */
-.testi{background:var(--navy);padding:100px 7%;overflow:hidden}
-.testi-wrap{max-width:1200px;margin:0 auto}
-.testi-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:72px}
-.testi-top-l .sec-ey{color:var(--gold)}
-.testi-top-r p{font-size:16px;line-height:1.82;color:rgba(255,255,255,0.45)}
-
-/* slide carousel */
-.testi-carousel{position:relative;overflow:hidden}
-.testi-slides{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
-.testi-slide{flex:0 0 100%;opacity:0.3;transition:opacity .55s ease}
-.testi-slide.active{opacity:1}
-
-/* featured panel */
-.testi-featured{position:relative;padding:64px 72px;background:rgba(255,255,255,0.03);border:0.5px solid rgba(200,164,90,0.12)}
-.testi-featured::before{
-  content:'\201C';
-  font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;
-  font-size:160px;font-weight:300;line-height:0.7;
-  color:var(--gold);opacity:0.15;
-  position:absolute;top:40px;left:48px;pointer-events:none;
-}
-.testi-featured::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold),transparent)}
-.testi-featured-quote{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:clamp(18px,2.2vw,26px);font-weight:300;color:rgba(255,255,255,0.88);line-height:1.6;margin-bottom:40px;position:relative;z-index:1}
-.testi-featured-author{display:flex;align-items:center;gap:16px;position:relative;z-index:1}
-.testi-featured-av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--navy-2),var(--navy-3));border:1px solid rgba(200,164,90,0.3);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--gold-lt);flex-shrink:0}
-.testi-featured-name{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:16px;font-weight:500;color:#fff}
-.testi-featured-stars{color:var(--gold);font-size:16px;letter-spacing:3px;margin-top:2px}
-
-/* nav */
-.tc-nav{display:flex;align-items:center;justify-content:space-between;margin-top:40px}
-.tc-nav-arrows{display:flex;gap:12px}
-.tc-btn{width:44px;height:44px;border-radius:50%;border:0.5px solid rgba(200,164,90,0.25);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
-.tc-btn:hover{background:var(--gold);border-color:var(--gold)}
-.tc-btn:hover svg path{stroke:var(--navy)}
-.tc-btn svg path{stroke:rgba(255,255,255,0.6);transition:stroke .2s}
-.tc-counter{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.12em;color:rgba(255,255,255,0.3)}
-.tc-counter span{color:var(--gold)}
-
-/* CTA strip */
-.testi-cta{margin-top:64px;display:flex;align-items:center;justify-content:space-between;gap:40px;padding-top:52px;border-top:0.5px solid rgba(200,164,90,0.12);flex-wrap:wrap}
-
-/* ── CONTACT ── */
-.contact-sec{background:var(--off)}
-.contact-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.contact-l p{font-size:16px;line-height:1.82;color:var(--mid);margin-bottom:28px}
-.c-detail{display:flex;gap:16px;padding:17px 0;border-bottom:0.5px solid var(--line)}
-.c-det-lbl{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);min-width:76px;padding-top:2px}
-.c-det-val{font-size:16px;color:var(--navy);line-height:1.6}
-.c-form{background:var(--cream);padding:44px;border:0.5px solid var(--line)}
-.c-form h3{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:26px;font-weight:300;color:var(--navy);margin-bottom:8px}
-.c-form .sp{font-size:16px;color:var(--mid);margin-bottom:28px;line-height:1.6}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-.fg label{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid)}
-.fg input,.fg select,.fg textarea{background:#fff;border:0.5px solid rgba(13,27,42,0.13);padding:11px 14px;font-size:16px;font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;color:var(--navy);outline:none;transition:border-color .2s;width:100%;resize:none;appearance:none}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
-.f-row .fg{margin-bottom:0}
-.f-btn{width:100%;background:var(--gold);color:var(--navy);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;padding:14px;border:none;cursor:pointer;transition:background .2s}
-.f-btn:hover{background:var(--gold-lt);box-shadow:0 4px 14px rgba(201,173,152,0.2)}
-
-/* ── JOIN TEAM ── */
-.join{background:var(--navy);padding:80px 7%}
-.join-wrap{max-width:860px;margin:0 auto;text-align:center}
-.join-intro{font-size:16px;line-height:1.82;color:rgba(255,255,255,0.5);max-width:640px;margin:0 auto 52px}
-.why-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,0.06);margin-bottom:52px}
-.why{background:var(--navy);padding:28px 20px;text-align:center;transition:background .2s}
-.why:hover{background:var(--navy-2)}
-.why-ico{color:var(--gold);font-size:16px;margin-bottom:13px;display:flex;justify-content:center}
-.why h4{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;color:#fff;margin-bottom:8px;line-height:1.3}
-.why p{font-size:16px;line-height:1.6;color:rgba(255,255,255,0.4)}
-.team-q{padding:36px 44px;background:rgba(255,255,255,0.04);border:0.5px solid rgba(200,164,90,0.15);border-radius:0;position:relative;overflow:hidden;margin-bottom:40px}
-.team-q::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
-.team-q blockquote{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:16px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:14px}
-.team-q cite{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--gold);letter-spacing:.1em}
-
-/* ── CTA BANNER ── */
-.cta-ban{position:relative;padding:100px 7%;overflow:hidden}
-.cta-ban video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.cta-ban::before{content:'';position:absolute;inset:0;background:rgba(28,28,28,0.72);z-index:1}
-.cta-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:60px;position:relative;z-index:2;flex-wrap:wrap}
-.cta-r{flex-shrink:0;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
-
-/* ── FOOTER ── */
-footer{background:var(--navy);border-top:0.5px solid rgba(200,164,90,0.13);padding:58px 7% 34px}
-.ft{max-width:1200px;margin:0 auto}
-.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:50px}
-.ft-brand h3{font-family:'Aeonik Pro','Helvetica Neue',Arial,sans-serif;font-size:22px;font-weight:400;color:#fff;margin-bottom:12px}
-.ft-brand p{font-size:16px;line-height:1.78;color:rgba(255,255,255,0.34)}
-.ft-col h5{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-.ft-col a{display:block;font-size:16px;color:rgba(255,255,255,0.36);text-decoration:none;margin-bottom:9px;transition:color .2s}
-.ft-col a:hover{color:rgba(255,255,255,0.8)}
-.ft-bot{border-top:0.5px solid rgba(255,255,255,0.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
-.ft-bot p{font-size:15px;color:rgba(255,255,255,0.28)}
-.ft-contact{font-size:16px;color:rgba(255,255,255,0.34)}
-.ft-contact strong{color:var(--gold);font-weight:400}
-
-/* ── REVEAL ANIMATION ── */
-.r{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.r.v{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-.stars{color:var(--gold);font-size:16px;letter-spacing:3px;margin-bottom:4px}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-
-.pg-hero{position:relative;padding:180px 7% 100px;background:var(--navy);overflow:hidden;min-height:440px;display:flex;align-items:flex-end}
-.pg-hero-bg{position:absolute;inset:0;background-size:cover!important;background-position:center!important}
-.pg-hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(20,20,20,0.88) 0%,rgba(20,20,20,0.6) 60%,rgba(20,20,20,0.3) 100%)}
-.pg-hero-content{position:relative;z-index:2;max-width:900px}
-.pg-hero-content .sec-ey{color:var(--gold);margin-bottom:16px}
-.pg-hero-content h1{color:#fff;font-size:clamp(34px,4.8vw,60px);margin-bottom:0}
-.pg-hero-content p{font-size:17px;color:rgba(255,255,255,0.68);max-width:600px;line-height:1.78;margin-top:18px}
-.pg-hero-content .h-btns{margin-top:28px}
-
-/* gold on light backgrounds — use darker shade */
-.c-section .sec-ey,
-section[style*="background:var(--cream)"] .sec-ey,
-section[style*="background:var(--off)"] .sec-ey,
-section[style*="background:#fff"] .sec-ey,
-section[style*="background:var(--cream)"] .sec-ey,
-.nc-benefits .sec-ey,
-.c-header-l .sec-ey,
-.contact-right .sec-ey,
-.vals-wrap .sec-ey { color: var(--gold-dark) !important; }
-
-/* inline gold text on light backgrounds */
-.c-section h2 span[style*="color:var(--gold)"],
-.contact-right h1 span[style*="color:var(--gold)"],
-.c-section p[style*="color:var(--gold)"],
-section[style*="background:var(--cream)"] span[style*="color:var(--gold)"],
-section[style*="background:var(--cream)"] [style*="color:var(--gold)"],
-.why-grid .why-ico,
-.nc-benefits-title span[style*="color:var(--gold)"] { color: var(--gold-dark) !important; }
-
-/* ── GLOBAL HOVER ENHANCEMENTS ── */
-/* Nav links */
-.n-links a{transition:color .25s ease,background .25s ease}
-
-/* Footer links */
-.ft-col a{transition:color .25s ease,padding-left .2s ease}
-.ft-col a:hover{color:rgba(255,255,255,0.8)!important;padding-left:4px}
-
-/* Listing cards */
-.lc{transition:transform .35s ease,box-shadow .35s ease}
-.lc:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.18)}
-.lc .lc-bg{transition:transform .6s ease}
-.lc:hover .lc-bg{transform:scale(1.04)}
-
-/* Stat numbers */
-.stat{transition:transform .3s ease}
-.stat:hover{transform:translateY(-3px)}
-
-/* Accordion items */
-.nc-acc-header{transition:color .25s ease}
-
-/* Core values grid */
-[style*="Integrity"],[style*="Client-Centered"]{transition:background .3s ease}
-
-/* Why boxes */
-.why{position:relative}
-
-/* community nav buttons */
-.c-btn{transition:background .3s ease,border-color .3s ease,transform .2s ease}
-.c-btn:hover{transform:scale(1.08)}
-
-/* Testimonial cards already have hover — ensure smooth */
-.t-card{will-change:transform}
-
-/* Section eyebrow */
-.sec-ey{transition:letter-spacing .3s ease}
-
-/* ═══════════════════════════════════════
-   GLOBAL MOBILE RESPONSIVE — ALL PAGES
-   ═══════════════════════════════════════ */
-@media (max-width: 768px) {
-
-  /* ── NAV ── */
-  nav { padding: 14px 5%; }
-  .n-links { display: none; }
-  .n-logo img { height: 40px !important; }
-
-  /* ── HERO / PAGE HERO ── */
-  .pg-hero { padding: 120px 5% 60px; min-height: 360px; }
-  .pg-hero-content h1 { font-size: clamp(28px, 7vw, 42px) !important; }
-  .pg-hero-content p { font-size: 15px !important; }
-  .h-content { padding: 0 5%; }
-  .h-content h1 { font-size: clamp(30px, 8vw, 48px) !important; line-height: 1.15; }
-  .h-sub { font-size: 15px !important; }
-  .h-btns { flex-direction: column; gap: 10px; }
-  .h-btns a { width: 100%; text-align: center; justify-content: center; }
-
-  /* ── STATS BAR ── */
-  .stats-inner { flex-direction: column; gap: 24px; padding: 32px 5%; }
-  .stat { border: none !important; padding: 0 !important; text-align: center; }
-  .stat-n { font-size: 36px !important; }
-
-  /* ── SECTION PADDING ── */
-  section { padding-left: 5% !important; padding-right: 5% !important; }
-  .testi-wrap, .nc-wrap, .lst-wrap, .vals-wrap, .join-wrap,
-  .ft, .cta-in, .contact-wrap { padding-left: 0 !important; padding-right: 0 !important; }
-
-  /* ── 2-COL GRIDS → STACK ── */
-  .vals-wrap, .nc-hd, .nc-benefits-wrap, .sell-header,
-  .contact-split, .testi-top, .comm-hd,
-  [style*="grid-template-columns:1fr 1fr"],
-  [style*="grid-template-columns:1fr 2fr"],
-  [style*="grid-template-columns:2fr 1fr"] {
-    grid-template-columns: 1fr !important;
-    display: block !important;
-  }
-
-  /* ── 3-COL GRIDS → STACK ── */
-  .t-grid, .why-grid, .lc-grid,
-  [style*="grid-template-columns:repeat(3"],
-  [style*="grid-template-columns:repeat(5"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* ── FOOTER ── */
-  .ft-top { grid-template-columns: 1fr !important; gap: 32px; }
-
-  /* ── CTA BANNER ── */
-  .cta-in { flex-direction: column; gap: 24px; }
-  .cta-r { align-items: flex-start !important; }
-
-  /* ── TESTIMONIALS ── */
-  .t-card { min-height: auto !important; }
-
-  /* ── COMMUNITIES CAROUSEL ── */
-  .c-carousel { padding: 0 3%; }
-  .c-card { flex: 0 0 85% !important; height: 460px !important; }
-  .c-nav { padding: 24px 5% 0; }
-  .c-header { grid-template-columns: 1fr !important; gap: 20px; margin-bottom: 36px; padding: 0 5%; }
-
-  /* ── LUXURY / BUY listing cards ── */
-  .lc { min-width: 0 !important; }
-  .lc-img { height: 220px !important; }
-
-  /* ── NC BENEFITS ── */
-  .nc-benefits-wrap { flex-direction: column !important; }
-  .nc-benefits-title { position: static !important; margin-bottom: 32px; }
-
-  /* ── CONTACT SPLIT ── */
-  .contact-split { grid-template-columns: 1fr !important; min-height: auto !important; }
-  .contact-img { height: 280px !important; position: relative; }
-  .contact-right { padding: 40px 5% !important; }
-  .contact-top { grid-template-columns: 1fr !important; display: block !important; }
-  .contact-cols { grid-template-columns: 1fr !important; gap: 32px; }
-
-  /* ── SELL PANELS ── */
-  .sell-panels { grid-template-columns: 1fr !important; }
-  .sell-panel { min-height: 160px !important; }
-  .sell-header { max-width: 100% !important; padding: 60px 5% 40px !important; }
-
-  /* ── NEW CONSTRUCTION ── */
-  .nc-wrap { padding: 60px 5% !important; }
-  .nc-alert { padding: 40px 28px !important; }
-  .nc-alert-content { text-align: center; }
-
-  /* ── ABOUT / EXP CARD ── */
-  .vals-r { padding-top: 0 !important; }
-  .exp-card { min-height: 260px !important; }
-
-  /* ── TEAM CARD (Christopher Nolan) ── */
-  [style*="grid-template-columns:1fr 1fr"] > div:first-child { min-height: 300px !important; }
-
-  /* ── JOIN WHY GRID ── */
-  .why { padding: 32px 24px !important; }
-
-  /* ── SELL VALUATION STRIP ── */
-  .sell-valuation [style*="display:flex"] { flex-direction: column !important; gap: 20px !important; }
-  .sell-valuation a { width: 100% !important; text-align: center !important; justify-content: center !important; }
-
-  /* ── GENERAL FLEX → COLUMN ── */
-  .testi-cta, [style*="display:flex;align-items:center;justify-content:space-between"] {
-    flex-direction: column !important;
-    gap: 20px !important;
-    align-items: flex-start !important;
-  }
-
-  /* ── TYPOGRAPHY SCALE DOWN ── */
-  h1 { font-size: clamp(28px, 7vw, 44px) !important; }
-  h2 { font-size: clamp(24px, 6vw, 36px) !important; }
-  h3 { font-size: clamp(20px, 5vw, 28px) !important; }
-
-  /* ── BUTTONS FULL WIDTH ON MOBILE ── */
-  .btn-g, .btn-o, .btn-n { display: block !important; text-align: center !important; width: 100% !important; box-sizing: border-box !important; }
-
-  /* prevent horizontal overflow */
-  body { overflow-x: hidden !important; }
-  img, video { max-width: 100% !important; }
-}
-
-@media (max-width: 480px) {
-  .n-logo img { height: 34px !important; }
-  .pg-hero { padding: 100px 5% 48px; }
-  .c-card { flex: 0 0 92% !important; height: 400px !important; }
-  .contact-img { height: 220px !important; }
-}
-
-/* ── HAMBURGER MENU ── */
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:300;background:none;border:none}
-.hamburger span{display:block;width:24px;height:1.5px;background:#fff;transition:all .3s ease;transform-origin:center}
-.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(20,20,20,0.98);z-index:250;flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;transition:opacity .35s ease}
-.mobile-menu.open{display:flex;opacity:1}
-.mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,6vw,42px);letter-spacing:.14em;color:#fff;text-decoration:none;transition:color .2s}
-.mobile-menu a:hover{color:var(--gold)}
-.mobile-menu .m-contact-btn{background:var(--gold);color:var(--navy) !important;padding:14px 40px;font-size:18px}
-@media (max-width:768px){
-  .hamburger{display:flex}
-  .n-links{display:none !important}
-  .n-btn{display:none !important}
-}
-
-@media (max-width: 768px) {
-  /* Nav mobile fix */
-  nav { flex-wrap: nowrap; justify-content: space-between; }
-  .n-logo { flex: 1; }
-  .hamburger { margin-left: auto; }
-
-  /* Fix ft-bot privacy links */
-  .ft-bot { flex-direction: column; gap: 12px; text-align: center; }
-  .ft-bot p { font-size: 13px !important; }
-
-  /* Social icons */
-  .ft-brand > div:last-of-type { justify-content: flex-start; }
-
-  /* Fix contact split height */
-  .contact-img video { position: absolute; }
-
-  /* NC benefits 2-col → stack */
-  .nc-benefits-wrap { grid-template-columns: 1fr !important; gap: 40px; }
-  .nc-benefits-title { position: static !important; }
-
-  /* Why grid mobile */
-  .why-grid { grid-template-columns: 1fr !important; gap: 1px; }
-
-  /* Sell panels */
-  .sell-panels { grid-template-columns: 1fr !important; }
-
-  /* Lux listing grid */
-  .lc-grid { grid-template-columns: 1fr !important; }
-
-  /* Page hero text */
-  .pg-hero-content h1 { font-size: clamp(26px, 7vw, 40px) !important; }
-
-  /* Testimonial grid */
-  .t-grid { grid-template-columns: 1fr !important; gap: 1px; }
-
-  /* Contact cols */
-  .contact-cols { grid-template-columns: 1fr !important; }
-
-  /* Join why boxes */
-  .why-grid { grid-template-columns: 1fr !important; }
-}
-
-/* ════════════════════════════════════════
-   COMPREHENSIVE MOBILE FIXES
-   ════════════════════════════════════════ */
-@media (max-width: 768px) {
-
-  /* ── NAV: hide links, show hamburger only ── */
-  .n-links { display: none !important; }
-  .n-btn   { display: none !important; }
-  .hamburger { display: flex !important; }
-  nav { padding: 14px 5% !important; }
-
-  /* ── HERO: 3-line headline ── */
-  .h-content h1 {
-    font-size: clamp(26px, 7.5vw, 38px) !important;
-    line-height: 1.18 !important;
-  }
-  .h-sub { font-size: 14px !important; max-width: 100% !important; }
-
-  /* ── STATS: single column ── */
-  .stats-inner {
-    grid-template-columns: 1fr !important;
-    display: grid !important;
-    gap: 0 !important;
-    padding: 0 !important;
-  }
-  .stat {
-    border-right: none !important;
-    border-bottom: 0.5px solid rgba(200,164,90,0.1);
-    padding: 20px 24px !important;
-  }
-  .stat:last-child { border-bottom: none; }
-  .stat-n { font-size: 36px !important; }
-
-  /* ── SERVICES: stack tabs + explore below content ── */
-  .svc-tabs {
-    grid-template-columns: 1fr !important;
-    gap: 1px;
-  }
-  .svc-tab {
-    padding: 20px 20px !important;
-  }
-  .svc-panel-body {
-    padding: 36px 20px !important;
-  }
-  .svc-panel-body p { max-width: 100% !important; }
-  .sc-lnk {
-    display: inline-flex !important;
-    margin-top: 8px;
-  }
-
-  /* ── FOOTER: copyright + privacy/terms ── */
-  .ft-bot {
-    flex-direction: column !important;
-    gap: 10px !important;
-    text-align: center !important;
-  }
-  .ft-bot p { font-size: 13px !important; }
-  .ft-top {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-
-  /* ── BUY PAGE: process 2-col → stack ── */
-  .proc-wrap, .proc-grid,
-  [style*="grid-template-columns:1fr 2fr"],
-  [style*="grid-template-columns:2fr 1fr"],
-  [style*="grid-template-columns:1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-    display: block !important;
-  }
-  .proc-l { margin-bottom: 32px; }
-  .sv-steps { padding-left: 0 !important; }
-
-  /* ── SELL: panels stack ── */
-  .sell-panels {
-    grid-template-columns: 1fr !important;
-    display: grid !important;
-  }
-  .sell-panel {
-    min-height: 120px !important;
-    padding: 24px 20px !important;
-  }
-  .sell-valuation-inner {
-    flex-direction: column !important;
-    gap: 20px !important;
-    text-align: center;
-  }
-
-  /* ── LUXURY: sections stack ── */
-  .lux-intro, .lux-grid, .lux-row {
-    grid-template-columns: 1fr !important;
-    display: block !important;
-  }
-  .lux-r { min-height: 280px !important; }
-  .lux-l, .lux-r { width: 100% !important; }
-
-  /* ── LUXURY LISTINGS ── */
-  .lc-grid { grid-template-columns: 1fr !important; }
-  .lst-hd  { grid-template-columns: 1fr !important; display: block !important; }
-  .lst-hd-l { margin-bottom: 24px; }
-
-  /* ── CONTACT SPLIT → STACK ── */
-  .contact-split {
-    grid-template-columns: 1fr !important;
-    min-height: auto !important;
-    display: block !important;
-  }
-  .contact-img {
-    height: 260px !important;
-    position: relative !important;
-  }
-  .contact-img video {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-  .contact-right {
-    padding: 36px 5% !important;
-  }
-  .contact-top { display: block !important; }
-  .contact-heading { font-size: clamp(28px,8vw,42px) !important; }
-  .contact-cols { grid-template-columns: 1fr !important; gap: 28px; }
-
-  /* ── JOIN: why boxes stack ── */
-  .why-grid { grid-template-columns: 1fr !important; }
-  .why { text-align: left !important; }
-
-  /* ── TESTIMONIALS ── */
-  .t-grid { grid-template-columns: 1fr !important; }
-  .t-card { min-height: auto !important; }
-
-  /* ── NC BENEFITS ── */
-  .nc-benefits-wrap {
-    grid-template-columns: 1fr !important;
-    display: block !important;
-  }
-  .nc-benefits-title { position: static !important; margin-bottom: 28px; }
-
-  /* ── COMMUNITIES CAROUSEL CARDS ── */
-  .c-card { flex: 0 0 88% !important; height: 400px !important; }
-  .c-header { display: block !important; padding: 0 5% !important; }
-
-  /* ── ABOUT TEAM CARD ── */
-  [style*="grid-template-columns:1fr 1fr"] > div:first-child {
-    min-height: 260px !important;
-  }
-
-  /* ── PAGE HERO ── */
-  .pg-hero { padding: 110px 5% 56px !important; }
-  .pg-hero-content h1 { font-size: clamp(26px,7vw,40px) !important; }
-
-  /* ── CTA BANNER ── */
-  .cta-in {
-    flex-direction: column !important;
-    gap: 20px !important;
-    padding: 0 5% !important;
-  }
-  .cta-r { flex-direction: column; gap: 10px; }
-  .cta-r a { width: 100%; text-align: center; justify-content: center; }
-
-  /* ── GENERAL BUTTONS FULL WIDTH ── */
-  .h-btns { flex-direction: column; gap: 10px; }
-  .h-btns a { width: 100% !important; text-align: center !important; justify-content: center !important; }
-
-  /* ── OVERFLOW GUARD ── */
-  body { overflow-x: hidden !important; }
-  * { max-width: 100%; box-sizing: border-box; }
-  img, video { max-width: 100% !important; }
-}
-</style>
 </head><body>
-<!-- NAV --><nav>
-  <a href="index.html" class="n-logo"><img src="https://cdn.katalyst-crm.com/t1/cloudinary/logonav_hghghu.png" alt="The Nolan Group" style="height:54px;width:auto;display:block"></a>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  <div class="n-links">
-    <a href="buy.html">Buy</a>
-    <a href="sell.html">Sell</a>
-    <a href="luxury.html">Luxury</a>
-    <a href="communities.html">Communities</a>
-    <a href="about.html">About</a>
-    <a href="join.html">Careers</a>
-  </div>
-  <a href="contact.html" class="n-btn">Contact Us</a>
+<!-- NAV --><nav data-group="Header" data-icon="menu" data-label="Navigation" data-section="nav">
+<a class="n-logo" href="index.html"><img alt="The Nolan Group" data-edit="nav.image_1" data-label="The Nolan Group" data-type="image" src="https://cdn.katalyst-crm.com/t1/cloudinary/logonav_hghghu.png" style="height:54px;width:auto;display:block"/></a>
+<button aria-label="Menu" class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+<div class="n-links">
+<a href="buy.html">Buy</a>
+<a href="sell.html">Sell</a>
+<a href="luxury.html">Luxury</a>
+<a href="communities.html">Communities</a>
+<a href="about.html">About</a>
+<a href="join.html">Careers</a>
+</div>
+<a class="n-btn" data-edit="nav.cta_1" data-label="Link 1" data-type="link" href="contact.html">Contact Us</a>
 </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Home</a>
-    <a href="buy.html">Buy</a>
-    <a href="sell.html">Sell</a>
-    <a href="luxury.html">Luxury</a>
-    <a href="communities.html">Communities</a>
-    <a href="about.html">About</a>
-    <a href="join.html">Careers</a>
-    <a href="contact.html" class="m-contact-btn">Contact Us</a>
-  </div>
-
-<section class="pg-hero">
-  <div class="pg-hero-bg" style="background:url('https://cdn.katalyst-crm.com/t1/cloudinary/jjj_qbsvnk.png') center/cover no-repeat"></div>
-  <div class="pg-hero-overlay"></div>
-  <div class="pg-hero-content">
-    <div class="sec-ey">Luxury Properties</div>
-    <h1>Elevated Living Across Florida's <span style="color:var(--gold)">Premier Coastal Communities</span></h1>
-    <p>Explore some of the most distinguished homes across Florida's Treasure Coast. The Nolan Group is your trusted guide to the area's finest luxury properties.</p>
-    <div class="h-btns">
-      <a href="contact.html" class="btn-g">View Luxury Properties →</a>
-      <a href="contact.html" class="btn-o">Request a Private Showing</a>
-    </div>
-  </div>
+<!-- Mobile Menu -->
+<div class="mobile-menu" data-group="Header" data-icon="menu" data-label="Mobile Menu" data-section="mobile_menu" id="mobileMenu">
+<a href="index.html">Home</a>
+<a href="buy.html">Buy</a>
+<a href="sell.html">Sell</a>
+<a href="luxury.html">Luxury</a>
+<a href="communities.html">Communities</a>
+<a href="about.html">About</a>
+<a href="join.html">Careers</a>
+<a class="m-contact-btn" data-edit="mobile_menu.cta_1" data-label="Link 1" data-type="link" href="contact.html">Contact Us</a>
+</div>
+<section class="pg-hero" data-group="Header" data-icon="image" data-label="Page Hero" data-section="pg_hero">
+<div class="pg-hero-bg" style="background:url('https://cdn.katalyst-crm.com/t1/cloudinary/jjj_qbsvnk.png') center/cover no-repeat"></div>
+<div class="pg-hero-overlay"></div>
+<div class="pg-hero-content">
+<div class="sec-ey" data-edit="pg_hero.eyebrow" data-label="Eyebrow" data-type="text">Luxury Properties</div>
+<h1 data-edit="pg_hero.title" data-label="Title" data-type="richtext">Elevated Living Across Florida's <span style="color:var(--gold)">Premier Coastal Communities</span></h1>
+<p data-edit="pg_hero.body_1" data-label="Paragraph 1" data-type="richtext">Explore some of the most distinguished homes across Florida's Treasure Coast. The Nolan Group is your trusted guide to the area's finest luxury properties.</p>
+<div class="h-btns">
+<a class="btn-g" data-edit="pg_hero.cta_1" data-label="Link 1" data-type="link" href="contact.html">View Luxury Properties &rarr;</a>
+<a class="btn-o" data-edit="pg_hero.cta_2" data-label="Link 2" data-type="link" href="contact.html">Request a Private Showing</a>
+</div>
+</div>
 </section>
-
-<section class="lux">
-  <div class="lux-wrap">
-    <div>
-      <div class="sec-ey r">Luxury Real Estate</div>
-      <h2 class="r d1">Discretion, Insight, <span style="color:var(--gold)">Exceptional Results.</span></h2>
-      <p style="font-size:16px;line-height:1.82;color:var(--mid);margin-bottom:16px" class="r d2">Luxury real estate demands more than a transaction; it requires deep market insight, discretion, and a network built over years of exceptional service.</p>
-      <p style="font-size:16px;line-height:1.82;color:var(--mid);margin-bottom:34px" class="r d2">Whether you're searching for an oceanfront sanctuary, a private estate, or a turnkey masterpiece, we connect you with properties that match both your vision and your lifestyle.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap" class="r d2">
-        <a href="contact.html" class="btn-g">Explore Luxury Listings →</a>
-        <a href="contact.html" class="btn-n">Request a Private Showing</a>
-      </div>
-    </div>
-    <div class="lux-r r d1">
-      <div style="position:absolute;inset:0;background:url('https://cdn.katalyst-crm.com/t1/cloudinary/hkkgk_zswfjj.png') center/cover no-repeat"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,20,0.9) 0%,rgba(20,20,20,0.45) 60%,rgba(20,20,20,0.15) 100%)"></div>
-      <div style="position:relative;z-index:1">
-        <h3>Access Exclusive<br>Properties Before<br><span style="color:var(--gold)">They Go Public</span></h3>
-        <p style="margin-top:16px">Our relationships with Florida's most exclusive property owners and developers give our clients first access to off-market opportunities and private listings that never reach the public market.</p>
-      </div>
-    </div>
-  </div>
+<section class="lux" data-group="Sections" data-icon="square" data-label="Lux" data-section="lux">
+<div class="lux-wrap">
+<div>
+<div class="sec-ey r" data-edit="lux.eyebrow" data-label="Eyebrow" data-type="text">Luxury Real Estate</div>
+<h2 class="r d1" data-edit="lux.title" data-label="Title" data-type="richtext">Discretion, Insight, <span style="color:var(--gold)">Exceptional Results.</span></h2>
+<p class="r d2" data-edit="lux.body_1" data-label="Paragraph 1" data-type="richtext" style="font-size:16px;line-height:1.82;color:var(--mid);margin-bottom:16px">Luxury real estate demands more than a transaction; it requires deep market insight, discretion, and a network built over years of exceptional service.</p>
+<p class="r d2" data-edit="lux.body_2" data-label="Paragraph 2" data-type="richtext" style="font-size:16px;line-height:1.82;color:var(--mid);margin-bottom:34px">Whether you're searching for an oceanfront sanctuary, a private estate, or a turnkey masterpiece, we connect you with properties that match both your vision and your lifestyle.</p>
+<div class="r d2" style="display:flex;gap:12px;flex-wrap:wrap">
+<a class="btn-g" data-edit="lux.cta_1" data-label="Link 1" data-type="link" href="contact.html">Explore Luxury Listings &rarr;</a>
+<a class="btn-n" data-edit="lux.cta_2" data-label="Link 2" data-type="link" href="contact.html">Request a Private Showing</a>
+</div>
+</div>
+<div class="lux-r r d1">
+<div style="position:absolute;inset:0;background:url('https://cdn.katalyst-crm.com/t1/cloudinary/hkkgk_zswfjj.png') center/cover no-repeat"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,20,0.9) 0%,rgba(20,20,20,0.45) 60%,rgba(20,20,20,0.15) 100%)"></div>
+<div style="position:relative;z-index:1">
+<h3 data-edit="lux.item_1_title" data-label="Item 1 title" data-type="text">Access Exclusive<br/>Properties Before<br/><span style="color:var(--gold)">They Go Public</span></h3>
+<p data-edit="lux.body_3" data-label="Paragraph 3" data-type="richtext" style="margin-top:16px">Our relationships with Florida's most exclusive property owners and developers give our clients first access to off-market opportunities and private listings that never reach the public market.</p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- LUXURY LISTINGS -->
-<section class="lst" style="background:var(--navy);padding:80px 7%">
-  <div class="lst-wrap">
-    <div class="lst-hd">
-      <div>
-        <div class="sec-ey r" style="color:var(--gold)">Featured Luxury Listings</div>
-        <h2 class="r d1 w2">Explore Luxury <span style="color:var(--gold)">Listings</span></h2>
-      </div>
-      <p class="r d1" style="color:rgba(255,255,255,0.45)">From private estates to oceanfront sanctuaries, discover Florida's finest properties.</p>
-    </div>
-    <div class="lc-grid">
-      <div class="lc r">
-        <div class="lc-img">
-          <div class="lc-bg" style="background:url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&h=520&fit=crop&auto=format') center/cover no-repeat"></div>
-          <div class="lc-badge">Luxury</div>
-          
-        </div>
-        <div class="lc-body"><h4>John's Island Retreat</h4><div class="lc-loc">Orchid Island, FL</div><div class="lc-meta"><span><strong>5</strong>Beds</span><span><strong>6</strong>Baths</span><span><strong>6,400</strong>Sq Ft</span></div></div>
-      </div>
-      <div class="lc r d1">
-        <div class="lc-img">
-          <div class="lc-bg" style="background:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=520&fit=crop&auto=format') center/cover no-repeat"></div>
-          <div class="lc-badge">Oceanfront</div>
-          
-        </div>
-        <div class="lc-body"><h4>Oceanfront Estate</h4><div class="lc-loc">Indian River Shores, FL</div><div class="lc-meta"><span><strong>4</strong>Beds</span><span><strong>4.5</strong>Baths</span><span><strong>4,200</strong>Sq Ft</span></div></div>
-      </div>
-      <div class="lc r d2">
-        <div class="lc-img">
-          <div class="lc-bg" style="background:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=520&fit=crop&auto=format') center/cover no-repeat"></div>
-          <div class="lc-badge">Private Estate</div>
-          
-        </div>
-        <div class="lc-body"><h4>Grand Harbor Waterfront</h4><div class="lc-loc">Vero Beach, FL</div><div class="lc-meta"><span><strong>5</strong>Beds</span><span><strong>5</strong>Baths</span><span><strong>5,100</strong>Sq Ft</span></div></div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:46px"><a href="contact.html" class="btn-g r">View All Luxury Listings →</a></div>
-  </div>
+<section class="lst" data-group="Sections" data-icon="home" data-label="Featured Listings" data-section="lst" style="background:var(--navy);padding:80px 7%">
+<div class="lst-wrap">
+<div class="lst-hd">
+<div>
+<div class="sec-ey r" data-edit="lst.eyebrow" data-label="Eyebrow" data-type="text" style="color:var(--gold)">Featured Luxury Listings</div>
+<h2 class="r d1 w2" data-edit="lst.title" data-label="Title" data-type="richtext">Explore Luxury <span style="color:var(--gold)">Listings</span></h2>
+</div>
+<p class="r d1" data-edit="lst.body_1" data-label="Paragraph 1" data-type="richtext" style="color:rgba(255,255,255,0.45)">From private estates to oceanfront sanctuaries, discover Florida's finest properties.</p>
+</div>
+<div class="lc-grid">
+<div class="lc r">
+<div class="lc-img">
+<div class="lc-bg" style="background:url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&amp;h=520&amp;fit=crop&amp;auto=format') center/cover no-repeat"></div>
+<div class="lc-badge">Luxury</div>
+</div>
+<div class="lc-body"><h4 data-edit="lst.item_1_title" data-label="Item 1 title" data-type="text">John's Island Retreat</h4><div class="lc-loc">Orchid Island, FL</div><div class="lc-meta"><span><strong>5</strong>Beds</span><span><strong>6</strong>Baths</span><span><strong>6,400</strong>Sq Ft</span></div></div>
+</div>
+<div class="lc r d1">
+<div class="lc-img">
+<div class="lc-bg" style="background:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&amp;h=520&amp;fit=crop&amp;auto=format') center/cover no-repeat"></div>
+<div class="lc-badge">Oceanfront</div>
+</div>
+<div class="lc-body"><h4 data-edit="lst.item_2_title" data-label="Item 2 title" data-type="text">Oceanfront Estate</h4><div class="lc-loc">Indian River Shores, FL</div><div class="lc-meta"><span><strong>4</strong>Beds</span><span><strong>4.5</strong>Baths</span><span><strong>4,200</strong>Sq Ft</span></div></div>
+</div>
+<div class="lc r d2">
+<div class="lc-img">
+<div class="lc-bg" style="background:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&amp;h=520&amp;fit=crop&amp;auto=format') center/cover no-repeat"></div>
+<div class="lc-badge">Private Estate</div>
+</div>
+<div class="lc-body"><h4 data-edit="lst.item_3_title" data-label="Item 3 title" data-type="text">Grand Harbor Waterfront</h4><div class="lc-loc">Vero Beach, FL</div><div class="lc-meta"><span><strong>5</strong>Beds</span><span><strong>5</strong>Baths</span><span><strong>5,100</strong>Sq Ft</span></div></div>
+</div>
+</div>
+<div style="text-align:center;margin-top:46px"><a class="btn-g r" data-edit="lst.cta_1" data-label="Link 1" data-type="link" href="contact.html">View All Luxury Listings &rarr;</a></div>
+</div>
 </section>
-
-<section style="position:relative;padding:100px 7%;text-align:center;overflow:hidden">
-  <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
-    <source src="https://cdn.katalyst-crm.com/t1/cloudinary/veo-3.1-lite_Make_it_slow_drone_shot_straightforward-0_2_nf1ljw.mp4" type="video/mp4">
-  </video>
-  <div style="position:absolute;inset:0;background:rgba(20,20,20,0.65);z-index:1"></div>
-  <div style="position:relative;z-index:2;max-width:700px;margin:0 auto">
-    <h2 class="r w2" style="color:#fff">Looking for Something <span style="color:#fff">Extraordinary?</span></h2>
-    <p style="font-size:16px;color:#fff;margin-bottom:32px;line-height:1.78" class="r d1">Our luxury specialists are ready to help you find or sell a distinguished property on Florida's Treasure Coast.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap" class="r d2">
-      <a href="contact.html" class="btn-g">Request a Private Consultation →</a>
-    </div>
-  </div>
+<section data-group="Sections" data-icon="megaphone" data-label="Bottom CTA Banner" data-section="cta_ban" style="position:relative;padding:100px 7%;text-align:center;overflow:hidden">
+<video autoplay="" loop="" muted="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+<source src="https://cdn.katalyst-crm.com/t1/cloudinary/veo-3.1-lite_Make_it_slow_drone_shot_straightforward-0_2_nf1ljw.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(20,20,20,0.65);z-index:1"></div>
+<div style="position:relative;z-index:2;max-width:700px;margin:0 auto">
+<h2 class="r w2" data-edit="cta_ban.title" data-label="Title" data-type="richtext" style="color:#fff">Looking for Something <span style="color:#fff">Extraordinary?</span></h2>
+<p class="r d1" data-edit="cta_ban.body_1" data-label="Paragraph 1" data-type="richtext" style="font-size:16px;color:#fff;margin-bottom:32px;line-height:1.78">Our luxury specialists are ready to help you find or sell a distinguished property on Florida's Treasure Coast.</p>
+<div class="r d2" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a class="btn-g" data-edit="cta_ban.cta_1" data-label="Link 1" data-type="link" href="contact.html">Request a Private Consultation &rarr;</a>
+</div>
+</div>
 </section>
-
-<footer>
-<footer>
-  <div class="ft">
-    <div class="ft-top">
-      <div class="ft-brand">
-        <img src="https://cdn.katalyst-crm.com/t1/cloudinary/logonav_hghghu.png" alt="The Nolan Group" style="height:40px;width:auto;display:block;margin-bottom:16px">
-        <p>Florida's premier real estate team powered by eXp Realty, serving buyers, sellers, and investors across Florida's Treasure Coast and premier markets.</p>
-        <p style="margin-top:14px;font-size:16px;color:rgba(255,255,255,0.24)">Monday – Saturday · 8am – 6pm</p>
-      
-        <!-- Social Media -->
-        <div style="display:flex;gap:16px;margin-top:20px;align-items:center">
-          <a href="https://www.facebook.com/TheNolanGroupofExp" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/company/79716846/admin/feed/posts/" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://www.youtube.com/channel/UCq33WSjtlPEU6whB3o1G2qA" target="_blank" rel="noopener" aria-label="YouTube" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1c1c1c"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@usarealtorchris" target="_blank" rel="noopener" aria-label="TikTok" style="color:rgba(255,255,255,0.45);transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="ft-col">
-        <h5>Services</h5>
-        <a href="buy.html">Buy a Home</a>
-        <a href="sell.html">Sell Your Home</a>
-        <a href="luxury.html">Luxury Properties</a>
-        <a href="new-construction.html">New Construction</a>
-      </div>
-      <div class="ft-col">
-        <h5>Communities</h5>
-        <a href="communities.html">Vero Beach</a>
-        <a href="communities.html">Sebastian</a>
-        <a href="communities.html">Indian River Shores</a>
-        <a href="communities.html">Orchid Island</a>
-        <a href="communities.html">John's Island</a>
-      </div>
-      <div class="ft-col">
-        <h5>Company</h5>
-        <a href="about.html">About Us</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="communities.html">Communities</a>
-        <a href="contact.html">Contact</a>
-        <a href="join.html">Join Our Team</a>
-      </div>
-    </div>
-    <div class="ft-bot">
-      <p>© 2025 The Nolan Group · All rights reserved &nbsp;&nbsp;<a href="privacy.html" style="color:rgba(255,255,255,0.4);text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Terms &amp; Conditions</a></p>
-      <div class="ft-contact"><strong><a href="tel:7722223327" style="color:inherit;text-decoration:none">(772) 222-3327</a></strong> · info@thenolangroup.com</div>
-    </div>
-  </div>
+<footer data-group="Footer" data-icon="panel-bottom" data-label="Footer" data-section="site_footer">
+<div class="ft">
+<div class="ft-top">
+<div class="ft-brand">
+<img alt="The Nolan Group" data-edit="site_footer.image_1" data-label="The Nolan Group" data-type="image" src="https://cdn.katalyst-crm.com/t1/cloudinary/logonav_hghghu.png" style="height:40px;width:auto;display:block;margin-bottom:16px"/>
+<p data-edit="site_footer.body_1" data-label="Paragraph 1" data-type="richtext">Florida's premier real estate team powered by eXp Realty, serving buyers, sellers, and investors across Florida's Treasure Coast and premier markets.</p>
+<p data-edit="site_footer.body_2" data-label="Paragraph 2" data-type="richtext" style="margin-top:14px;font-size:16px;color:rgba(255,255,255,0.24)">Monday &ndash; Saturday &middot; 8am &ndash; 6pm</p>
+<!-- Social Media -->
+<div style="display:flex;gap:16px;margin-top:20px;align-items:center">
+<a aria-label="Facebook" href="https://www.facebook.com/TheNolanGroupofExp" onmouseout="this.style.color='rgba(255,255,255,0.45)'" onmouseover="this.style.color='var(--gold)'" rel="noopener" style="color:rgba(255,255,255,0.45);transition:color .2s" target="_blank">
+<svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+</a>
+<a aria-label="LinkedIn" href="https://www.linkedin.com/company/79716846/" onmouseout="this.style.color='rgba(255,255,255,0.45)'" onmouseover="this.style.color='var(--gold)'" rel="noopener" style="color:rgba(255,255,255,0.45);transition:color .2s" target="_blank">
+<svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+</a>
+<a aria-label="YouTube" href="https://www.youtube.com/channel/UCq33WSjtlPEU6whB3o1G2qA" onmouseout="this.style.color='rgba(255,255,255,0.45)'" onmouseover="this.style.color='var(--gold)'" rel="noopener" style="color:rgba(255,255,255,0.45);transition:color .2s" target="_blank">
+<svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"></path><polygon fill="#1c1c1c" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
+</a>
+<a aria-label="TikTok" href="https://www.tiktok.com/@usarealtorchris" onmouseout="this.style.color='rgba(255,255,255,0.45)'" onmouseover="this.style.color='var(--gold)'" rel="noopener" style="color:rgba(255,255,255,0.45);transition:color .2s" target="_blank">
+<svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"></path></svg>
+</a>
+</div>
+</div>
+<div class="ft-col">
+<h5>Services</h5>
+<a href="buy.html">Buy a Home</a>
+<a href="sell.html">Sell Your Home</a>
+<a href="luxury.html">Luxury Properties</a>
+<a href="new-construction.html">New Construction</a>
+</div>
+<div class="ft-col">
+<h5>Communities</h5>
+<a href="communities.html#vero-beach">Vero Beach</a>
+<a href="communities.html#sebastian">Sebastian</a>
+<a href="communities.html#indian-river-shores">Indian River Shores</a>
+<a href="communities.html#orchid-island">Orchid Island</a>
+<a href="communities.html#johns-island">John's Island</a>
+</div>
+<div class="ft-col">
+<h5>Company</h5>
+<a href="about.html">About Us</a>
+<a href="testimonials.html">Testimonials</a>
+<a href="communities.html">Communities</a>
+<a href="contact.html">Contact</a>
+<a href="join.html">Join Our Team</a>
+</div>
+</div>
+<div class="ft-bot">
+<p data-edit="site_footer.body_3" data-label="Paragraph 3" data-type="richtext">&copy; <span class="yr">2026</span> The Nolan Group &middot; All rights reserved &nbsp;&nbsp;<a href="privacy.html" onmouseout="this.style.color='rgba(255,255,255,0.4)'" onmouseover="this.style.color='var(--gold)'" style="color:rgba(255,255,255,0.4);text-decoration:none">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html" onmouseout="this.style.color='rgba(255,255,255,0.4)'" onmouseover="this.style.color='var(--gold)'" style="color:rgba(255,255,255,0.4);text-decoration:none">Terms &amp; Conditions</a> &nbsp;&middot;&nbsp; <a href="accessibility.html" onmouseout="this.style.color='rgba(255,255,255,0.4)'" onmouseover="this.style.color='var(--gold)'" style="color:rgba(255,255,255,0.4);text-decoration:none">Accessibility</a></p>
+<div class="ft-contact"><strong><a href="tel:7722223327" style="color:inherit;text-decoration:none">(772) 222-3327</a></strong> &middot; info@thenolangroup.com</div>
+</div>
+<!-- Brokerage compliance (audit #6). Wording needs Shari / brokerage review;
+     licence number still to be supplied. Both lines are client-editable. -->
+<div class="ft-legal" style="margin-top:22px;padding-top:18px;border-top:0.5px solid rgba(255,255,255,0.08)">
+<p data-edit="site_footer.body_4" data-label="Brokerage" data-type="richtext" style="font-size:13px;line-height:1.75;color:rgba(255,255,255,0.3);margin:0 0 6px">The Nolan Group is a real estate team with eXp Realty LLC.</p>
+<p data-edit="site_footer.body_5" data-label="Equal Housing" data-type="richtext" style="font-size:13px;line-height:1.75;color:rgba(255,255,255,0.3);margin:0">Equal Housing Opportunity. The Nolan Group supports the Fair Housing Act and the Equal Opportunity Act.</p>
+</div>
+</div>
 </footer>
 <script>
 window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>60);},{passive:true});
@@ -1078,5 +213,25 @@ if(ham && mob){
     });
   });
 }
+</script>
+<!-- Cookie consent (audit #12) -->
+<div aria-label="Cookie consent" class="ck-ban" id="ckBan" role="region">
+<p>We use cookies to keep this site working and to understand how it is used. See our <a href="privacy.html">Privacy Policy</a>.</p>
+<div class="ck-btns">
+<button class="ck-dec" id="ckDec" type="button">Decline</button>
+<button class="ck-acc" id="ckAcc" type="button">Accept</button>
+</div>
+</div>
+<script>
+(function(){
+  document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().getFullYear();});
+  var b=document.getElementById('ckBan');if(!b)return;
+  var k='tng-cookie-consent',v=null;
+  try{v=localStorage.getItem(k);}catch(e){}
+  if(!v){b.classList.add('show');}
+  function set(val){try{localStorage.setItem(k,val);}catch(e){}b.classList.remove('show');}
+  document.getElementById('ckAcc').addEventListener('click',function(){set('accepted');});
+  document.getElementById('ckDec').addEventListener('click',function(){set('declined');});
+})();
 </script>
 </body></html>
