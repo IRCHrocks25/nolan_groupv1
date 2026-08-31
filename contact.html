@@ -60,14 +60,14 @@
 <!-- Details -->
 <div class="contact-info">
 <h4 data-edit="contact.item_1_title" data-label="Item 1 title" data-type="text">Get in Touch</h4>
-<div class="contact-info-row">Tuesday &ndash; Saturday</div>
-<div class="contact-info-row">8:00 am &ndash; 6:00 pm EST</div>
+<div class="contact-info-row" data-edit="contact.detail_1" data-label="Hours, days" data-type="text">Tuesday &ndash; Saturday</div>
+<div class="contact-info-row" data-edit="contact.detail_2" data-label="Hours, time" data-type="text">8:00 am &ndash; 6:00 pm EST</div>
 <div class="contact-info-divider"></div>
 <div class="contact-info-row"><a data-edit="contact.cta_1" data-label="Link 1" data-type="link" href="mailto:info@thenolangroup.com">info@thenolangroup.com</a></div>
 <div class="contact-info-row"><a data-edit="contact.cta_2" data-label="Link 2" data-type="link" href="tel:+17722223327">(772) 222-3327</a></div>
 <div class="contact-info-divider"></div>
-<div class="contact-info-row">601 21st Street, Suite 100</div>
-<div class="contact-info-row">Vero Beach, FL</div>
+<div class="contact-info-row" data-edit="contact.detail_3" data-label="Street address" data-type="text">601 21st Street, Suite 100</div>
+<div class="contact-info-row" data-edit="contact.detail_4" data-label="City, state, ZIP" data-type="text">Vero Beach, FL</div>
 </div>
 <!-- Form -->
 <div>
@@ -151,6 +151,12 @@
 <div class="ft-bot">
 <p data-edit="site_footer.body_3" data-label="Paragraph 3" data-type="richtext">&copy; <span class="yr">2026</span> The Nolan Group &middot; All rights reserved &nbsp;&nbsp;<a href="privacy.html" onmouseout="this.style.color='rgba(255,255,255,0.4)'" onmouseover="this.style.color='var(--gold)'" style="color:rgba(255,255,255,0.4);text-decoration:none">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html" onmouseout="this.style.color='rgba(255,255,255,0.4)'" onmouseover="this.style.color='var(--gold)'" style="color:rgba(255,255,255,0.4);text-decoration:none">Terms &amp; Conditions</a> &nbsp;&middot;&nbsp; <a href="accessibility.html" onmouseout="this.style.color='rgba(255,255,255,0.4)'" onmouseover="this.style.color='var(--gold)'" style="color:rgba(255,255,255,0.4);text-decoration:none">Accessibility</a></p>
 <div class="ft-contact"><strong><a href="tel:7722223327" style="color:inherit;text-decoration:none">(772) 222-3327</a></strong> &middot; info@thenolangroup.com</div>
+</div>
+<!-- Brokerage compliance (audit #6). Wording needs Shari / brokerage review;
+     licence number still to be supplied. Both lines are client-editable. -->
+<div class="ft-legal" style="margin-top:22px;padding-top:18px;border-top:0.5px solid rgba(255,255,255,0.08)">
+<p data-edit="site_footer.body_4" data-label="Brokerage" data-type="richtext" style="font-size:13px;line-height:1.75;color:rgba(255,255,255,0.3);margin:0 0 6px">The Nolan Group is a real estate team with eXp Realty LLC.</p>
+<p data-edit="site_footer.body_5" data-label="Equal Housing" data-type="richtext" style="font-size:13px;line-height:1.75;color:rgba(255,255,255,0.3);margin:0">Equal Housing Opportunity. The Nolan Group supports the Fair Housing Act and the Equal Opportunity Act.</p>
 </div>
 </div>
 </footer><script>window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>60);},{passive:true});const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')});},{threshold:0.1});document.querySelectorAll('.r').forEach(el=>obs.observe(el));</script><script>
