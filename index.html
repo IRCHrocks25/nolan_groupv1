@@ -374,33 +374,6 @@ const obs = new IntersectionObserver(entries => {
 },{threshold:0.1});
 document.querySelectorAll('.r').forEach(el => obs.observe(el));
 
-// Communities carousel
-(function(){
-  const track = document.getElementById('commTrack');
-  const prev  = document.getElementById('commPrev');
-  const next  = document.getElementById('commNext');
-  if(!track || !prev || !next) return;
-  const cards = track.querySelectorAll('.comm-card');
-  const total = cards.length;
-  let cur = 0;
-  const visible = 2;
-
-  function slide(idx){
-    const cardW = cards[0].getBoundingClientRect().width + 16;
-    cur = Math.max(0, Math.min(idx, total - visible));
-    track.style.transform = `translateX(-${cur * cardW}px)`;
-  }
-
-  prev.addEventListener('click', () => slide(cur - 1));
-  next.addEventListener('click', () => slide(cur + 1));
-
-  let sx = 0;
-  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
-  track.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - sx;
-    if(Math.abs(dx) > 50) slide(dx < 0 ? cur + 1 : cur - 1);
-  });
-})();
 
 // Service tabs
 document.querySelectorAll('.svc-tab').forEach(tab => {

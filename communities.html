@@ -161,6 +161,7 @@
 </section>
 <script>
 (function(){
+  var carousel = document.querySelector('.c-carousel');
   var track   = document.getElementById('commTrack');
   var prevBtn = document.getElementById('commPrev');
   var nextBtn = document.getElementById('commNext');
@@ -169,14 +170,26 @@
 
   var origCards = Array.from(track.querySelectorAll('.c-card'));
   var total     = origCards.length;
-  var visible   = 4;
   var cur       = 0;
   var AUTO_MS   = 5000;
   var timer;
 
-  // Clone all cards for seamless loop (prepend last batch + append first batch)
-  origCards.forEach(function(c){ track.appendChild(c.cloneNode(true)); });
-  origCards.forEach(function(c){ track.appendChild(c.cloneNode(true)); });
+  // Slug -> index, read before cloning so only the originals are indexed.
+  var indexOf = {};
+  origCards.forEach(function(c, i){ if(c.id) indexOf[c.id] = i; });
+
+  // Clone all cards twice for a seamless loop. Clones must not keep the id --
+  // three elements sharing an id is invalid and makes the anchors ambiguous.
+  function cloneBatch(){
+    origCards.forEach(function(c){
+      var copy = c.cloneNode(true);
+      copy.removeAttribute('id');
+      copy.setAttribute('aria-hidden', 'true');
+      track.appendChild(copy);
+    });
+  }
+  cloneBatch();
+  cloneBatch();
   var allCards = track.querySelectorAll('.c-card');
 
   function cW(){ return allCards[0].getBoundingClientRect().width + 20; }
@@ -185,8 +198,11 @@
     if(instant) track.style.transition = 'none';
     else track.style.transition = 'transform 1.1s cubic-bezier(.4,0,.2,1)';
     track.style.transform = 'translateX(-' + (idx * cW()) + 'px)';
+    // The browser answers a #hash by scrolling the overflow:hidden wrapper,
+    // which then fights this transform. Keep the wrapper pinned at 0.
+    if(carousel) carousel.scrollLeft = 0;
     cur = idx;
-    if(counter) counter.textContent = (cur % total) + 1;
+    if(counter) counter.textContent = (((cur % total) + total) % total) + 1;
   }
 
   // Jump without animation after transition ends for loop
@@ -199,11 +215,11 @@
   });
 
   function advance(){ goTo(cur + 1, false); }
-  function startAuto(){ timer = setInterval(advance, AUTO_MS); }
+  function startAuto(delay){ stopAuto(); timer = setInterval(advance, delay || AUTO_MS); }
   function stopAuto(){ clearInterval(timer); }
 
-  if(nextBtn) nextBtn.addEventListener('click', function(){ stopAuto(); goTo(cur + 1, false); startAuto(); });
-  if(prevBtn) prevBtn.addEventListener('click', function(){ stopAuto(); goTo(cur - 1, false); startAuto(); });
+  if(nextBtn) nextBtn.addEventListener('click', function(){ goTo(cur + 1, false); startAuto(); });
+  if(prevBtn) prevBtn.addEventListener('click', function(){ goTo(cur - 1, false); startAuto(); });
 
   var sx = 0;
   track.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; stopAuto(); }, {passive:true});
@@ -215,10 +231,49 @@
 
   // Pause on hover
   track.addEventListener('mouseenter', stopAuto);
-  track.addEventListener('mouseleave', startAuto);
+  track.addEventListener('mouseleave', function(){ startAuto(); });
 
-  goTo(0, true);
-  startAuto();
+  // /communities/#<slug> from the footer should land on that community.
+  var flashTimer;
+  function highlight(card){
+    clearTimeout(flashTimer);
+    allCards.forEach(function(c){ c.style.outline = ''; c.style.outlineOffset = ''; });
+    card.style.outline = '2px solid var(--gold)';
+    card.style.outlineOffset = '3px';
+    flashTimer = setTimeout(function(){ card.style.outline = ''; card.style.outlineOffset = ''; }, 3200);
+  }
+
+  function showHash(instant){
+    var slug = (window.location.hash || '').replace('#', '');
+    if(!slug || !(slug in indexOf)) return false;
+    var i = indexOf[slug];
+    goTo(i, instant);
+    highlight(origCards[i]);
+    // Bring the carousel itself into view vertically; the browser's own jump
+    // was cancelled by pinning scrollLeft above.
+    var sec = track.closest('section') || track;
+    sec.scrollIntoView({ block: 'start', behavior: instant ? 'auto' : 'smooth' });
+    return true;
+  }
+
+  var deepLinked = showHash(true);
+  if(!deepLinked) goTo(0, true);
+  // After a deep link, hold the target on screen for a beat before autoplay.
+  startAuto(deepLinked ? AUTO_MS * 3 : AUTO_MS);
+
+  window.addEventListener('hashchange', function(){
+    if(showHash(false)) startAuto(AUTO_MS * 3);
+  });
+
+  // Card width is a percentage, so the pixel offset is only valid for the
+  // viewport it was measured in. Re-assert it once fonts and images have
+  // settled, and again whenever the viewport changes.
+  window.addEventListener('load', function(){ goTo(cur, true); });
+  var rz;
+  window.addEventListener('resize', function(){
+    clearTimeout(rz);
+    rz = setTimeout(function(){ goTo(cur, true); }, 120);
+  });
 })();
 </script>
 <section data-group="Sections" data-icon="map-pin" data-label="Communities" data-section="communities" style="position:relative;padding:130px 7%;text-align:center;overflow:hidden"><video autoplay="" loop="" muted="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"><source src="https://cdn.katalyst-crm.com/t1/cloudinary/veo-3.1-lite_Make_it_slow_drone_shot_straightforward-0_ypxurl.mp4" type="video/mp4"/></video><div style="position:absolute;inset:0;background:rgba(20,20,20,0.68);z-index:1"></div><div style="position:relative;z-index:2">
@@ -291,19 +346,6 @@
 window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>60);},{passive:true});
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')});},{threshold:0.1});
 document.querySelectorAll('.r').forEach(el=>obs.observe(el));
-
-(function(){
-  const track=document.getElementById('commTrack');
-  const prev=document.getElementById('commPrev');
-  const next=document.getElementById('commNext');
-  if(!track||!prev||!next)return;
-  const cards=track.querySelectorAll('.comm-card');
-  const total=cards.length;
-  let cur=0;const visible=2;
-  function slide(idx){const cardW=cards[0].getBoundingClientRect().width+16;cur=Math.max(0,Math.min(idx,total-visible));track.style.transform='translateX(-'+cur*cardW+'px)';}
-  prev.addEventListener('click',()=>slide(cur-1));
-  next.addEventListener('click',()=>slide(cur+1));
-})();
 </script>
 <script>
 var ham = document.getElementById('hamburger');
