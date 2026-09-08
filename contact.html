@@ -93,6 +93,42 @@
     data-cookie-consent-provider="auto"
     title="Website - Contact Us"
 ></iframe>
+<!-- Community prefill. Tiles on /communities/ link here as /contact/?community=<slug>.
+     A parent-page query string never reaches an iframe, so copy it onto the form URL
+     before the embed script runs. GHL query key for the message field is your_message. -->
+<script>
+(function(){
+  var frame = document.getElementById('inline-3a7NAMJeuRfzAePzRehJ');
+  if(!frame) return;
+  var slug = '';
+  try { slug = new URLSearchParams(window.location.search).get('community') || ''; } catch(e) { return; }
+  if(!slug) return;
+
+  var NAMES = {
+    'vero-beach': 'Vero Beach',
+    'sebastian': 'Sebastian',
+    'indian-river-shores': 'Indian River Shores',
+    'orchid-island': 'Orchid Island',
+    'windsor': 'Windsor',
+    'grand-harbor': 'Grand Harbor',
+    'johns-island': "John's Island",
+    'wabasso': 'Wabasso'
+  };
+
+  // Unknown slugs (a community added later in the CMS) fall back to a de-slugified
+  // name. Sanitised and length-capped so a crafted link cannot inject arbitrary text.
+  var name = NAMES[slug];
+  if(!name){
+    name = slug.toLowerCase().replace(/[^a-z0-9-]/g, '').replace(/-+/g, ' ').trim().slice(0, 40)
+               .replace(/\b[a-z]/g, function(c){ return c.toUpperCase(); });
+  }
+  if(!name) return;
+
+  var url = frame.getAttribute('src').split('?')[0];
+  frame.setAttribute('src', url + '?your_message=' +
+    encodeURIComponent("I'd like to know more about " + name + '.'));
+})();
+</script>
 <script src="https://link.rapidprospect.com/js/form_embed.js"></script>
 </div>
 </div>
