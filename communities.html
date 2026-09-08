@@ -214,24 +214,29 @@
     }
   });
 
-  function advance(){ goTo(cur + 1, false); }
-  function startAuto(delay){ stopAuto(); timer = setInterval(advance, delay || AUTO_MS); }
+  // A deep link parks the named card on screen for a beat. Hovering restarts
+  // the timer, so the hold is a timestamp rather than a longer interval --
+  // otherwise a mouseleave would cancel it.
+  var holdUntil = 0;
+  function advance(){ if(Date.now() < holdUntil) return; goTo(cur + 1, false); }
+  function startAuto(){ stopAuto(); timer = setInterval(advance, AUTO_MS); }
   function stopAuto(){ clearInterval(timer); }
+  function hold(){ holdUntil = Date.now() + AUTO_MS * 3; }
 
-  if(nextBtn) nextBtn.addEventListener('click', function(){ goTo(cur + 1, false); startAuto(); });
-  if(prevBtn) prevBtn.addEventListener('click', function(){ goTo(cur - 1, false); startAuto(); });
+  if(nextBtn) nextBtn.addEventListener('click', function(){ holdUntil = 0; goTo(cur + 1, false); startAuto(); });
+  if(prevBtn) prevBtn.addEventListener('click', function(){ holdUntil = 0; goTo(cur - 1, false); startAuto(); });
 
   var sx = 0;
   track.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; stopAuto(); }, {passive:true});
   track.addEventListener('touchend', function(e){
     var dx = e.changedTouches[0].clientX - sx;
-    if(Math.abs(dx) > 50) goTo(dx < 0 ? cur + 1 : cur - 1, false);
+    if(Math.abs(dx) > 50){ holdUntil = 0; goTo(dx < 0 ? cur + 1 : cur - 1, false); }
     startAuto();
   });
 
   // Pause on hover
   track.addEventListener('mouseenter', stopAuto);
-  track.addEventListener('mouseleave', function(){ startAuto(); });
+  track.addEventListener('mouseleave', startAuto);
 
   // /communities/#<slug> from the footer should land on that community.
   var flashTimer;
@@ -256,13 +261,11 @@
     return true;
   }
 
-  var deepLinked = showHash(true);
-  if(!deepLinked) goTo(0, true);
-  // After a deep link, hold the target on screen for a beat before autoplay.
-  startAuto(deepLinked ? AUTO_MS * 3 : AUTO_MS);
+  if(showHash(true)) hold(); else goTo(0, true);
+  startAuto();
 
   window.addEventListener('hashchange', function(){
-    if(showHash(false)) startAuto(AUTO_MS * 3);
+    if(showHash(false)) hold();
   });
 
   // Card width is a percentage, so the pixel offset is only valid for the
